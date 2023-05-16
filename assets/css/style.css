@@ -1,0 +1,62 @@
+@import url(//fonts.googleapis.com/css?family=Questrial|Limelight);
+
+* {
+    --header-font: 'Limelight', cursive;
+    --body-font: 'Poiret One', cursive;
+    --background: black;
+    --accent-colour: #FFD700;
+}
+
+body {
+    background-color: var(--background);
+    font-size: 17px;
+    line-height: 1.7em;
+}
+
+h2 {
+    font-weight: normal;
+    font-family: var(--header-font);
+    color: var(--accent-colour);
+}
+
+div {
+    width: 50%;
+    margin: 2em auto;
+    padding: 2em 2.5em;
+}
+
+.deco { 
+  border: 6px solid;
+  border-color: var(--accent-colour);
+  position: relative;
+}
+
+.deco:before, .deco:after {
+  border: 3px solid;
+  border-color: var(--accent-colour);
+}
+
+.deco:before, .deco:after {
+  content: "";
+  position: absolute;  
+  border-color: var(--accent-colour);
+}
+
+.deco:before {
+  top: -15px;
+  right: 6px;
+  bottom: -15px;
+  left: 6px;
+}
+
+.deco:after {
+  top: 6px;
+  right: -15px;
+  bottom: 6px;
+  left: -15px;
+}
+
+p {
+    font-family: var(--body-font);
+    color: var(--accent-colour);
+}
