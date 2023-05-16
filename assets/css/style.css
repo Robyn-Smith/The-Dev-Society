@@ -1,6 +1,3 @@
-
-@import url(//fonts.googleapis.com/css?family=Questrial|Limelight);
-
 * {
     --header-font: 'Limelight', cursive;
     --body-font: 'Poiret One', cursive;
@@ -14,15 +11,16 @@ body {
     line-height: 1.7em;
 }
 
-h2 {
+h1, h2 {
     font-weight: normal;
     font-family: var(--header-font);
     color: var(--accent-colour);
+    text-align: center;
+    line-height: 200%;    
 }
 
 div {
-    width: 50%;
-    margin: 2em auto;
+    /* margin: 2em auto; */
     padding: 2em 2.5em;
 }
 
@@ -30,15 +28,13 @@ div {
   border: 6px solid;
   border-color: var(--accent-colour);
   position: relative;
+  padding: 20px;
 }
 
 .deco:before, .deco:after {
   border: 3px solid;
   border-color: var(--accent-colour);
-}
-
-.deco:before, .deco:after {
-  content: "";
+  /* content: ""; */
   position: absolute;  
   border-color: var(--accent-colour);
 }
@@ -57,13 +53,13 @@ div {
   left: -15px;
 }
 
-p {
+/* p {
     font-family: var(--body-font);
     color: var(--accent-colour);
-}
+} */
 body {
   /*font-family: 'Open Sans', sans-serif;*/
-  font-family: 'Didact Gothic', sans-serif;
+  /* font-family: 'Didact Gothic', sans-serif; */
   font-size: 16px;
   /*background: #f5f7fa;  */
   /*color: white;*/
@@ -89,10 +85,10 @@ section#details {
   display: none;
 }
 
-
+/* 
 #header {
   background: linear-gradient(0.25turn, #3f87a6, #f69d3c);
-}
+} */
 
 #poster {
   display:none;
@@ -111,4 +107,11 @@ section#details {
   visibility: visible;
 }
 
+#history {
+  list-style: none;
+}
 
+.bg-white {
+  background-color: rgba(555,555,555,0.5);
+  background-color: ;
+}

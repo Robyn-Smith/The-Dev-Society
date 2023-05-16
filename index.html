@@ -5,89 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./assets/css/reset.css" /> <!--remove-->
+    <!-- <link rel="stylesheet" href="./assets/css/reset.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    /> -->
     /> <!--Boot strap will be removed once new CSS is added-->
 
     <!-- Google Fonts -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Playfair+Display&display=swap" rel="stylesheet">    
-
-    <!--add reset style sheet here once complete-->
-    <link rel="stylesheet" href="./assets/css/style.css" /> <!--will be replaced once complete-->
-    <title>OMDB Movie</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&display=swap" rel="stylesheet">
+    <title>Picturesque</title>
   </head>
 
   <body>
-    <header class="py-3 bg-dark text-white text-center mb-4"> <!--remove bootstrap styling once css added-->
-      <h1 class="display-3">Picturesque</h1> <!--visable on all pages-->
+    <header>
+    <h1>Picturesque</h1>
     </header>
 
-    <!--Welcome page-->
-    <main class="container"> 
-      <section id="welcome">
-        <div class="container">
-          <div class="centered-div">
-            <h2 style="color: white;">Search for a movie:</h2>
-            <input type="text" id="main-input">
-          </div>
-          <div id="movie-list"> <!--added dynamically via javaScript-->
-          </div>
-        </div>  
-      </section>
+    <main class="">
 
-      <!--Main Page-->
-      <!--Aside-->
-      <section id="details">
-        <div class="row">
-          <aside class="col-md-3 col-12 bg-light p-4 rounded mb-4"> <!--remove bootstrap-->
-            <h2 class="mb-3">Search for a Movie</h2><!--remove bootstrap-->
-            <form>
-              <div class="mb-3"> <!--remove bootstrap-->
-                <input class="form-control" id="movie-input" placeholder="e.g. Batman">
+        <section id="welcome">
+            <div class="container">
+              <div class="deco">
+                <div class="u-full-width">
+                    <h2>Search for a movie:</h2>
+                    <input type="text" id="main-input" />
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary w-100" id="search-button">Search</button><!--remove bootstrap-->
-              <div id="error" class="mt-3"></div><!--remove bootstrap-->
-            </form>
-            <hr>
-            <h5 class="mt-3">Search History</h5><!--remove bootstrap-->
-            <ul id="history" class="list-group"></ul>
-          </aside>
-          
-          <!--film information section-->
-          <section class="col-md-9 col-12"><!--remove bootstrap-->
-            <article class="border border-dark p-3 bg-white rounded"><!--container of main section-->
-              <h2 id="movie-name" class="mb-3">--</h2><!--remove bootstrap-->
-              <!--div containing poster on the left side of the box-->
-              <div class="row"><!--remove bootstrap-->
-                <div class="col-md-4 col-12"><!--remove bootstrap-->
-                  <button id="poster-button"><img src="#" id="poster" class="img-fluid"></button>
-                </div><!--linked to trailor modal once clicked-->
-                <!--div containing film information on the right side of the box-->
-                <div class="col-md-8 col-12"><!--remove bootstrap-->
-                  <p id="year">Released: </p>
-                  <p id="actors">Actors: </p>
-                  <p id="plot">Plot: </p>
-                  <p id="genre">Genre:</p>
-                  <p id="country">Country:</p>
-                  <div id="map" class="mt-4 text-center" style="width: 150px; height: 150px;"></div><!--remove bootstrap-->
-                </div>  <!--map of film creation-->
-              </div>
-            </article>
-          
-            <!--Modal containing trailor-->
-            <!--dialog id="player" class="mt-4 text-center modal"-->
-            <dialog id="player">
-              <!--Cards show here-->
-              <iframe id="iframe"></iframe>
-              <button id="close">close</button> <!--closes modal-->
-            </dialog>
-          </section>            
-        </div>
+              <div id="movie-list"></div>
+            </div>
+          </section>
 
-      </section>     
+        <section id="details" class="container">
+            <div class="row">
+                <aside class="three columns bg-white">
+                    <form>
+                        <label>Search for a Movie</label>
+                        <div class="">
+                            <input class="u-full-width" id="movie-input" placeholder="e.g. Batman">
+                        </div>
+                        <button type="submit" class="button button-primary" id="search-button">Search</button>
+                        <div id="error" class=""></div>
+                    </form>
+                <hr>
+                <h5 class="">Search History</h5>
+                <ul id="history" class="list-group"></ul>
+                </aside>
+    
+                <section class="nine columns bg-white">
+                    <article class="">
+                        <h2 id="movie-name" class="">--</h2>
+                        <div class="row">
+                            <div class="four columns">
+                                <button id="poster-button">
+                                    <img src="#" id="poster" class="img-fluid">
+                                </button>
+                            </div>
+                            <div class="eight columns">
+                                <p id="year">Released: </p>
+                                <p id="actors">Actors: </p>
+                                <p id="plot">Plot: </p>
+                                <p id="genre">Genre:</p>
+                                <p id="country">Country:</p>
+                                <div id="map" class="" style="width: 150px; height: 150px;"></div>
+                            </div>  
+                        </div>
+                    </article>
+            
+                    <!--dialog id="player" class="mt-4 text-center modal"-->
+                    <dialog id="player">
+                    <!--Cards show here-->
+                        <iframe id="iframe"></iframe>
+                        <button id="close">close</button>
+                    </dialog>
+                </section>            
+            </div>
+
+</section>     
 
     </main>
 
