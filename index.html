@@ -27,17 +27,18 @@
     </header>
 
     <main class="">
-        <section id="welcome" class="container">
-            <div class="deco">
-                <h2>Search for a movie:</h2>
-                <form>
-                    <input type="text" id="main-input" class="u-full-width">
-                    <button type="submit" class="button button-primary" id="search-btn">Search</button>
-                </form>
+
+        <section id="welcome">
+            <div class="container">
+              <div class="centered-div deco">
+                <div class="u-full-width">
+                    <h2>Search for a movie:</h2>
+                    <input type="text" id="main-input" />
+                </div>
+              </div>
+              <div id="movie-list"></div>
             </div>
-            <div id="movie-list">
-            </div>
-        </section>
+          </section>
 
         <section id="details" class="container">
             <div class="row">
@@ -98,8 +99,8 @@
     <script src="./assets/js/script.js"></script>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA&callback=initMap&libraries=&v=weekly"
-        async
-    ></script>    
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
   </body>
 </html>
