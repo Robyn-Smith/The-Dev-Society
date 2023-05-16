@@ -34,7 +34,7 @@ div {
 .deco:before, .deco:after {
   border: 3px solid;
   border-color: var(--accent-colour);
-  content: "";
+  /* content: ""; */
   position: absolute;  
   border-color: var(--accent-colour);
 }
@@ -109,4 +109,9 @@ section#details {
 
 #history {
   list-style: none;
+}
+
+.bg-white {
+  background-color: rgba(555,555,555,0.5);
+  background-color: ;
 }
