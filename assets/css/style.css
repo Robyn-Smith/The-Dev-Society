@@ -1,0 +1,48 @@
+body {
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 16px;
+  /*background: #f5f7fa;  */
+  /*color: white;*/
+
+  background: url('../images/movie-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card-text {
+  font-size: 80%;
+}
+/* add the message display none initially */
+#error {
+  /*display:none;*/
+  color: #990000;
+}
+
+section#details {
+  display: none;
+}
+
+
+#header {
+  background: linear-gradient(0.25turn, #3f87a6, #f69d3c);
+}
+
+#poster {
+  display:none;
+}
+
+#map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+#poster-button:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out;
+  font-size: 12px;
+  content: attr(alt);
+  visibility: visible;
+}
