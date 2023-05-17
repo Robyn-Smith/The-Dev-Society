@@ -12,6 +12,7 @@ var mainInput = document.getElementById("main-input");
 var movieInput = document.getElementById('movie-input')
 var searchButton = document.getElementById('search-button');
 var addButton = document.getElementById('addBtn')
+var viewButton = document.querySelector('.viewBtn')
 
 var movieNameEl = document.getElementById('movie-name');
 var yearEl = document.getElementById('year');
