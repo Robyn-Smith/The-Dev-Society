@@ -476,8 +476,17 @@ $(function () {
   searchButton.addEventListener('click', getApi);
 
   addButton.addEventListener('click', function() {
+    var options = {
+      title: movieNameEl.textContent,
+      year: yearEl.textContent,
+      actors: actorEl.textContent,
+      plot: plotEl.textContent,
+      poster: imageEl.src
+    } 
 
-  })
+    // Pass watchList and options into pushToWatchList function
+    pushToWatchList(watchList, options)
+    })
 
   // load from local Storage
   loadFromLocalStorage();
