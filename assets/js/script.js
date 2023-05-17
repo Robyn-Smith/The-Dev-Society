@@ -19,6 +19,7 @@ var actorEl = document.getElementById('actors');
 var plotEl = document.getElementById('plot');
 var genreEl = document.getElementById('genre');
 var countryEl = document.getElementById('country');
+var addedMessageEl = document.getElementById('added-message')
 
 var imageEl = document.getElementById("poster");
 var posterButton = document.getElementById("poster-button");
