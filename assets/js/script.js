@@ -11,6 +11,7 @@ var mainInput = document.getElementById("main-input");
 
 var movieInput = document.getElementById('movie-input')
 var searchButton = document.getElementById('search-button');
+var addButton = document.getElementById('addBtn')
 
 var movieNameEl = document.getElementById('movie-name');
 var yearEl = document.getElementById('year');
@@ -60,6 +61,7 @@ function retrieveOMDB(movie){
     if ('Error' in data){
       errorEl.textContent = data.Error;
     } else {
+      addButton.style.display = 'block'
       if ('Title' in data) {
         movieNameEl.textContent =  data.Title;
         // do the trailer part!
@@ -446,6 +448,10 @@ $(function () {
 
   // search button clicked
   searchButton.addEventListener('click', getApi);
+
+  addButton.addEventListener('click', function() {
+    
+  })
 
   // load from local Storage
   loadFromLocalStorage();
