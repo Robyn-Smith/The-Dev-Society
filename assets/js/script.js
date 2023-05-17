@@ -511,4 +511,8 @@ $(function () {
     errorEl.textContent = "";
   });  
 
+  viewButton.addEventListener('click', function() {
+      document.location.replace('watchlist.html')
+  })
+
 });
