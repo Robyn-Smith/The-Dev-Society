@@ -437,7 +437,23 @@ function initMovie(){
 
 }
 
-
+// Checks if the film title already exists in the watchlist before trying to add it
+function pushToWatchList(watchList, options) {
+  if (!watchList.find(({title}) => title === options.title)) {
+      //console.log(options)
+      watchList.push(options)
+      addedMessageEl.textContent = `Added ${movieNameEl.textContent} to your watchlist`
+      setTimeout(function() {
+          addedMessageEl.textContent = ''
+      }, 1000)
+      storeWatchList()
+  } else {
+      addedMessageEl.textContent = `${movieNameEl.textContent} is already in your watchlist`
+      setTimeout(function() {
+          addedMessageEl.textContent = ''
+      }, 1000)
+  }
+}
 
 
 $(function () {
