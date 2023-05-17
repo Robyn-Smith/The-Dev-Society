@@ -36,6 +36,7 @@ var detailsSection = document.getElementById('details');
 
 var movieArray = ['https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg', ];
 
+var watchList = []
 
 
 /**
@@ -313,6 +314,12 @@ function saveHistory(title){
  */
 function loadFromLocalStorage(){
   var array = [];
+  var storedWatchList = JSON.parse(localStorage.getItem('watchList') || "[]")
+
+  if(storedWatchList !== null) {
+    watchList = storedWatchList
+  }
+
   if (localStorage.getItem('saved-titles')!= null){
     array = JSON.parse(localStorage.getItem('saved-titles'));
   }
@@ -330,7 +337,9 @@ function loadFromLocalStorage(){
 
 }
 
-
+function storeWatchList() {
+  localStorage.setItem('watchList', JSON.stringify(watchList))
+}
 
 
 
@@ -450,7 +459,7 @@ $(function () {
   searchButton.addEventListener('click', getApi);
 
   addButton.addEventListener('click', function() {
-    
+
   })
 
   // load from local Storage
