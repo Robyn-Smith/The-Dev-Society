@@ -30,6 +30,35 @@ function displayWatchList() {
 
 }
 
+// Generates a modal for the selected film
+function generateModal(index) {
+    // Grab details of selected film using its index
+    var filmInfo = watchList[index]
+
+    var title = filmInfo.title
+    var year = filmInfo.year
+    var actors = filmInfo.actors
+    var plot = filmInfo.plot
+    var poster = filmInfo.poster
+
+    // Generate the html for the modal
+    var movieInfo = document.createElement('dialog')
+    movieInfo.innerHTML =
+    `<div>
+        <img id="savedPoster" src="${poster}" alt="poster for the movie ${title}"></img>
+    </div>
+    <div>
+        <p id="savedTitle">Title: <span>${title}</span></p>
+        <p id="savedYear">Year: <span>${year}</span></p>
+        <p id="savedActors">Actors: <span>${actors}</span></p>
+        <p id="savedPlot">Plot: <span>${plot}</span></p>
+    </div>`
+
+    myWatchList.appendChild(movieInfo)
+    // Show the selected modal
+    movieInfo.showModal()
+}
+
 function storeWatchList() {
     localStorage.setItem('watchList', JSON.stringify(watchList))
 }
