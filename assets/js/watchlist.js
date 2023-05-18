@@ -49,4 +49,9 @@ returnBtn.addEventListener('click', function() {
     document.location.replace('index.html')
 })
 
+// Even listeners for watchlist elements
+myWatchList.addEventListener('click', function(e) {
+    var element = e.target
+})
+
 init()
