@@ -31,6 +31,7 @@ var historyEl = document.getElementById('history');
 var errorEl = document.getElementById('error');
 var iframeDiv = document.getElementById('iframe');
 var closeBtn = document.getElementById('close');
+var errorWelcomeEl = document.getElementById('error-welcome');
 
 var movieList = document.getElementById('movie-list');
 var welcomeSection = document.getElementById('welcome');
@@ -119,6 +120,95 @@ function retrieveOMDB(movie){
 
   });
 }
+
+
+/**
+ * to the movie details from OMDB api
+ * @param movie
+ * @returns respoonse.json() upon response failed
+ */
+function retrieveOMDBfromWelcome(movie){
+
+  var requestUrl = "https://www.omdbapi.com/?apikey=" +  apiKey + "&t=" + movie;
+  errorWelcomeEl.textContent = "";
+
+  fetch(requestUrl)
+  .then(function (response) {
+    if (response.status !== 200){
+      console.log(response);
+    }   
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data);
+
+    if ('Error' in data){
+      errorWelcomeEl.textContent = data.Error;
+      welcomeSection.setAttribute("style", "display:inline;");
+      detailsSection.setAttribute("style", "display:none;");  
+    
+      //console.log("")
+    } else {
+      if ('Title' in data) {
+        movieNameEl.textContent =  data.Title;
+        // do the trailer part!
+        youtubeSearch(data.Title);
+        saveHistory(data.Title);          
+      }
+      if ('imdbRating' in data){
+        var rating = data.imdbRating;
+        var a ="";
+        if (rating != 'N/A'){
+          rating = parseInt(rating);
+          console.log(rating);
+          while (rating >= 2){
+            a = a + "⭐";
+            rating -=2;
+          }
+        }
+        console.log(parseInt(rating));
+        movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+      }
+      if ('Released' in data){
+        yearEl.textContent = "Year: " + data.Released;
+      }
+      if ('Actors' in data){
+        actorEl.textContent = "Actors: " + data.Actors;
+      }
+      if ('Plot' in data){
+        plotEl.textContent = "Plot: " + data.Plot;
+      }
+      if ('Genre' in data){
+        genreEl.textContent = "Genre: " + data.Genre;
+      }
+      if ('Poster' in data){
+        imageEl.src = data.Poster;
+        imageEl.alt = data.Title;
+        imageEl.style.display = 'block';
+      } else {
+        imageEl.style.display = 'none';
+      }
+
+      if ('Country' in data){
+        var a = data.Country.split(", ");
+        console.log(a[0]);
+        countryEl.textContent = "Country: " + a[0];
+        retrieveLatLong(data.Country.split(", ")[0]);
+      }  
+      welcomeSection.setAttribute("style", "display:none;");
+      detailsSection.setAttribute("style", "display:inline;");  
+
+    }
+  })
+  .catch((error) => {
+    console.error('Error fetching data:', error);
+    errorEl.textContent = "Connection Error";
+    errorWelcomeEl.textContent = "Connection Error";
+
+  });
+}
+
+
 
 /**
  * to retrieve the Latitude and Longitude from city name using api 
@@ -217,8 +307,8 @@ function loadVideo(videoId) {
   //var iframe = document.createElement('iframe');
 
   // Set attributes of the iframe
-  iframeDiv.setAttribute('width', '640');
-  iframeDiv.setAttribute('height', '360');
+  //iframeDiv.setAttribute('width', '640');
+  //iframeDiv.setAttribute('height', '360');
   iframeDiv.setAttribute('src', 'https://www.youtube.com/embed/' + videoId);
   iframeDiv.setAttribute('frameborder', '0');
   iframeDiv.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media;'); 
@@ -371,9 +461,11 @@ function getApi(event) {
 
 function mainLogic(movie){
 
-  retrieveOMDB(movie);
-  welcomeSection.setAttribute("style", "display:none;");
-  detailsSection.setAttribute("style", "display:inline;");
+  retrieveOMDBfromWelcome(movie);
+  //welcomeSection.setAttribute("style", "display:none;");
+  //detailsSection.setAttribute("style", "display:inline;");
+  mainInput.value = '';
+  mainInput.blur(); 
 
 }
 
@@ -383,6 +475,7 @@ function showModal1(){
 }
 function closeModal1() {
   playerDialog.close();
+  iframeDiv.setAttribute('src', '');
 }
 
 function initMovie(){
@@ -468,6 +561,9 @@ $(function () {
       // Add your code here to handle the Enter key press
       var movie = mainInput.value;
       mainLogic(movie);
+      mainInput.value = '';
+      mainInput.blur(); 
+
     }
   });
   
@@ -511,8 +607,26 @@ $(function () {
     errorEl.textContent = "";
   });  
 
+  // clear the error message upon focus on input field
+  mainInput.addEventListener('focus', function() {
+    errorWelcomeEl.textContent = "";
+  });  
+
+
   viewButton.addEventListener('click', function() {
       document.location.replace('watchlist.html')
   })
+
+  $("#main-input").autocomplete({
+    source: availableTags
+  });
+
+  $('#movie-list').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
+
 
 });
