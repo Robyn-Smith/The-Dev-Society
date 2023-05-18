@@ -62,6 +62,14 @@ myWatchList.addEventListener('click', function(e) {
         storeWatchList()
         displayWatchList()
     }
+
+    // Generate modal for selected film when its poster is clicked
+    if (element.matches('#listPoster')) {
+        var index = element.parentElement.getAttribute("data-index")
+        
+        console.log(index)
+        generateModal(index)
+    }
 })
 
 init()
