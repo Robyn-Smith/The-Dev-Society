@@ -57,6 +57,20 @@ function generateModal(index) {
     myWatchList.appendChild(movieInfo)
     // Show the selected modal
     movieInfo.showModal()
+
+    // Close the modal if the user clicks outside of it
+    movieInfo.addEventListener("click", function(e) {
+        const dialogDimensions = movieInfo.getBoundingClientRect()
+        if (
+          e.clientX < dialogDimensions.left ||
+          e.clientX > dialogDimensions.right ||
+          e.clientY < dialogDimensions.top ||
+          e.clientY > dialogDimensions.bottom
+        ) {
+          // remove() will delete the created dialog element, unlike close() which only hides it
+          movieInfo.remove()
+        }
+      })
 }
 
 function storeWatchList() {
