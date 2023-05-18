@@ -11,6 +11,8 @@ var mainInput = document.getElementById("main-input");
 
 var movieInput = document.getElementById('movie-input')
 var searchButton = document.getElementById('search-button');
+var addButton = document.getElementById('addBtn')
+var viewButton = document.querySelector('.viewBtn')
 
 var movieNameEl = document.getElementById('movie-name');
 var yearEl = document.getElementById('year');
@@ -18,6 +20,7 @@ var actorEl = document.getElementById('actors');
 var plotEl = document.getElementById('plot');
 var genreEl = document.getElementById('genre');
 var countryEl = document.getElementById('country');
+var addedMessageEl = document.getElementById('added-message')
 
 var imageEl = document.getElementById("poster");
 var posterButton = document.getElementById("poster-button");
@@ -35,6 +38,7 @@ var detailsSection = document.getElementById('details');
 
 var movieArray = ['https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg', ];
 
+var watchList = []
 
 
 /**
@@ -60,6 +64,7 @@ function retrieveOMDB(movie){
     if ('Error' in data){
       errorEl.textContent = data.Error;
     } else {
+      addButton.style.display = 'block'
       if ('Title' in data) {
         movieNameEl.textContent =  data.Title;
         // do the trailer part!
@@ -311,6 +316,12 @@ function saveHistory(title){
  */
 function loadFromLocalStorage(){
   var array = [];
+  var storedWatchList = JSON.parse(localStorage.getItem('watchList') || "[]")
+
+  if(storedWatchList !== null) {
+    watchList = storedWatchList
+  }
+
   if (localStorage.getItem('saved-titles')!= null){
     array = JSON.parse(localStorage.getItem('saved-titles'));
   }
@@ -328,7 +339,9 @@ function loadFromLocalStorage(){
 
 }
 
-
+function storeWatchList() {
+  localStorage.setItem('watchList', JSON.stringify(watchList))
+}
 
 
 
@@ -425,7 +438,23 @@ function initMovie(){
 
 }
 
-
+// Checks if the film title already exists in the watchlist before trying to add it
+function pushToWatchList(watchList, options) {
+  if (!watchList.find(({title}) => title === options.title)) {
+      //console.log(options)
+      watchList.push(options)
+      addedMessageEl.textContent = `Added ${movieNameEl.textContent} to your watchlist`
+      setTimeout(function() {
+          addedMessageEl.textContent = ''
+      }, 1000)
+      storeWatchList()
+  } else {
+      addedMessageEl.textContent = `${movieNameEl.textContent} is already in your watchlist`
+      setTimeout(function() {
+          addedMessageEl.textContent = ''
+      }, 1000)
+  }
+}
 
 
 $(function () {
@@ -446,6 +475,19 @@ $(function () {
 
   // search button clicked
   searchButton.addEventListener('click', getApi);
+
+  addButton.addEventListener('click', function() {
+    var options = {
+      title: movieNameEl.textContent,
+      year: yearEl.textContent,
+      actors: actorEl.textContent,
+      plot: plotEl.textContent,
+      poster: imageEl.src
+    } 
+
+    // Pass watchList and options into pushToWatchList function
+    pushToWatchList(watchList, options)
+    })
 
   // load from local Storage
   loadFromLocalStorage();
@@ -468,5 +510,9 @@ $(function () {
   movieInput.addEventListener('focus', function() {
     errorEl.textContent = "";
   });  
+
+  viewButton.addEventListener('click', function() {
+      document.location.replace('watchlist.html')
+  })
 
 });
