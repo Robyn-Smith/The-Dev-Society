@@ -9,10 +9,11 @@ body {
     background-color: var(--background);
     font-size: 17px;
     line-height: 1.7em;
-    background-image: url("../images/top-left.svg"), url("../images/top-right.svg"), url("../images/bottom-right.svg"), url("../images/bottom-left.svg");
+    background-image: url("../images/top-left.svg"), url("../images/top-right.svg");
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-size: 25%;
-    background-position: top left, top right, bottom right, bottom left;
+    background-position: top left, top right;
+
 }
 
 h1, h2 {
@@ -60,6 +61,13 @@ div {
 p {
     font-family: var(--body-font);
     color: var(--accent-colour);
+}
+
+main {
+  background-image: url("../images/bottom-right.svg"), url("../images/bottom-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 25%;
+  background-position: bottom right, bottom left;
 }
 
 .card-text {
