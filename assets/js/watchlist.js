@@ -30,6 +30,10 @@ function displayWatchList() {
 
 }
 
+function storeWatchList() {
+    localStorage.setItem('watchList', JSON.stringify(watchList))
+}
+
 function init() {
     var storedWatchList = JSON.parse(localStorage.getItem('watchList'))
     
