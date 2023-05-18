@@ -107,6 +107,27 @@ section#details {
   visibility: visible;
 }
 
+#player {
+  background: url('../images/screen.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;   /* Adjust as per the size of your background image */
+  height: 100%;  /* Adjust as per the size of your background image */
+  box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
+  
+}
+#player iframe {
+  width: 100%;
+  height: 90%;
+  padding-top: 15%;
+  padding-left: 1%;
+  padding-right:1%;
+  padding-bottom:9%;
+}
+
+
 #history {
   list-style: none;
 }
