@@ -13,6 +13,7 @@ var movieInput = document.getElementById('movie-input')
 var searchButton = document.getElementById('search-button');
 var addButton = document.getElementById('addBtn')
 var viewButton = document.querySelector('.viewBtn')
+var backButton = document.getElementById('backBtn');
 
 var movieNameEl = document.getElementById('movie-name');
 var yearEl = document.getElementById('year');
@@ -478,6 +479,13 @@ function closeModal1() {
   iframeDiv.setAttribute('src', '');
 }
 
+function backToMain(){
+  event.preventDefault();
+  welcomeSection.setAttribute("style", "display:inline;");
+  detailsSection.setAttribute("style", "display:none;");
+}
+
+
 function initMovie(){
 
   // Clear out the previous iframe
@@ -612,6 +620,7 @@ $(function () {
     errorWelcomeEl.textContent = "";
   });  
 
+  backButton.addEventListener('click', backToMain);
 
   viewButton.addEventListener('click', function() {
       document.location.replace('watchlist.html')
