@@ -52,6 +52,16 @@ returnBtn.addEventListener('click', function() {
 // Even listeners for watchlist elements
 myWatchList.addEventListener('click', function(e) {
     var element = e.target
+
+    // Removes film from the watch list and updates the page
+    if (element.matches('#removeBtn')) {
+        var index = element.parentElement.getAttribute("data-index")
+        console.log(index)
+        watchList.splice(index, 1)
+
+        storeWatchList()
+        displayWatchList()
+    }
 })
 
 init()
