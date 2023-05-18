@@ -115,3 +115,66 @@ section#details {
   background-color: rgba(555,555,555,0.5);
   background-color: ;
 }
+
+#myWatchList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#listPoster {
+  transition: 0.5s;
+}
+
+#listPoster:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+dialog {
+  border: none;
+  border-radius: 0.2rem;
+  line-height: 2;
+  
+  width: 40%;
+  padding: 1rem;
+  transition: 1s;
+}
+
+dialog::backdrop {
+  background-color: #252525a8;
+}
+
+#filmCard {
+  position: relative;
+}
+
+#removeBtn {
+  position: absolute;
+  top: 5%;
+  right: 80%;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  width: 15%;
+  transition: 0.15s;
+}
+
+#removeBtn:hover {
+  color: #e00909;
+}
+
+#faveBtn {
+  position: absolute;
+  top: 5%;
+  left: 76%;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  width: 15%;
+  transition: 0.15s;
+}
+
+#faveBtn:hover {
+  color: #f5d106;
+}
