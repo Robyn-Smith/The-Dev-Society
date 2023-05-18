@@ -9,6 +9,11 @@ body {
     background-color: var(--background);
     font-size: 17px;
     line-height: 1.7em;
+    background-image: url("../images/top-left.svg"), url("../images/top-right.svg");
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 25%;
+    background-position: top left, top right;
+
 }
 
 h1, h2 {
@@ -23,7 +28,7 @@ div {
     /* margin: 2em auto; */
     padding: 2em 2.5em;
 }
-
+/* 
 .deco { 
   border: 6px solid;
   border-color: var(--accent-colour);
@@ -34,7 +39,7 @@ div {
 .deco:before, .deco:after {
   border: 3px solid;
   border-color: var(--accent-colour);
-  /* content: ""; */
+  content: ""; 
   position: absolute;  
   border-color: var(--accent-colour);
 }
@@ -51,24 +56,18 @@ div {
   right: -15px;
   bottom: 6px;
   left: -15px;
-}
+} */
 
-/* p {
+p {
     font-family: var(--body-font);
     color: var(--accent-colour);
-} */
-body {
-  /*font-family: 'Open Sans', sans-serif;*/
-  /* font-family: 'Didact Gothic', sans-serif; */
-  font-size: 16px;
-  /*background: #f5f7fa;  */
-  /*color: white;*/
+}
 
-  background: url('../images/movie-background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+main {
+  background-image: url("../images/bottom-right.svg"), url("../images/bottom-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 25%;
+  background-position: bottom right, bottom left;
 }
 
 .card-text {
@@ -134,7 +133,69 @@ section#details {
 
 .bg-white {
   background-color: rgba(555,555,555,0.5);
-  background-color: ;
+}
+
+#myWatchList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#listPoster {
+  transition: 0.5s;
+}
+
+#listPoster:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+dialog {
+  border: none;
+  border-radius: 0.2rem;
+  line-height: 2;
+  
+  width: 40%;
+  padding: 1rem;
+  transition: 1s;
+}
+
+dialog::backdrop {
+  background-color: #252525a8;
+}
+
+#filmCard {
+  position: relative;
+}
+
+#removeBtn {
+  position: absolute;
+  top: 5%;
+  right: 80%;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  width: 15%;
+  transition: 0.15s;
+}
+
+#removeBtn:hover {
+  color: #e00909;
+}
+
+#faveBtn {
+  position: absolute;
+  top: 5%;
+  left: 76%;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  width: 15%;
+  transition: 0.15s;
+}
+
+#faveBtn:hover {
+  color: #f5d106;
 }
 
 #myWatchList {
