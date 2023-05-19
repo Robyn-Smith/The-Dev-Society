@@ -12,7 +12,8 @@ var mainInput = document.getElementById("main-input");
 var movieInput = document.getElementById('movie-input')
 var searchButton = document.getElementById('search-button');
 var addButton = document.getElementById('addBtn')
-var viewButton = document.querySelector('.viewBtn')
+var viewButtonMain = document.getElementById('viewBtnMain')
+var viewButtonDetails = document.getElementById('viewBtnDetails')
 var backButton = document.getElementById('backBtn');
 
 var movieNameEl = document.getElementById('movie-name');
@@ -622,8 +623,14 @@ $(function () {
 
   backButton.addEventListener('click', backToMain);
 
-  viewButton.addEventListener('click', function() {
-      document.location.replace('watchlist.html')
+  viewButtonMain.addEventListener('click', function(e) {
+    e.preventDefault()
+    document.location.replace('watchlist.html')
+  })
+
+  viewButtonDetails.addEventListener('click', function(e) {
+    e.preventDefault()
+    document.location.replace('watchlist.html')
   })
 
   $("#main-input").autocomplete({
