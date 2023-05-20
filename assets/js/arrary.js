@@ -23,7 +23,7 @@ var tempArray = [{title: "Avatar", poster: "https://m.media-amazon.com/images/M/
                 {title: "Book Club: The Next Chapter", poster: "https://m.media-amazon.com/images/M/MV5BNGM0ZmFiYmEtMzMxOC00YWFlLWE4YzQtYzk2Y2NjNzZjYzA1XkEyXkFqcGdeQXVyMTQzNTA5MzYz._V1_SX300.jpg"}, 
                 {title: "The Artifice Girl", poster: "https://m.media-amazon.com/images/M/MV5BYzE1MWRkODQtNzdjZC00ODEyLWJkNDMtYzFiZjljNDIwNzRkXkEyXkFqcGdeQXVyMzQwMTY2Nzk@._V1_SX300.jpg"}, 
                 {title: "The Pope's Exorcist", poster: "https://m.media-amazon.com/images/M/MV5BYjA0MGU4MzYtYTYxMy00MjRhLTlmMDYtZTVhZDc1Y2QwNWY2XkEyXkFqcGdeQXVyMjY5ODI4NDk@._V1_SX300.jpg"}, 
-                {title: "nt-Man and the Wasp: Quantumania", poster: "https://m.media-amazon.com/images/M/MV5BODZhNzlmOGItMWUyYS00Y2Q5LWFlNzMtM2I2NDFkM2ZkYmE1XkEyXkFqcGdeQXVyMTU5OTA4NTIz._V1_SX300.jpg"}, 
+                {title: "Ant-Man and the Wasp: Quantumania", poster: "https://m.media-amazon.com/images/M/MV5BODZhNzlmOGItMWUyYS00Y2Q5LWFlNzMtM2I2NDFkM2ZkYmE1XkEyXkFqcGdeQXVyMTU5OTA4NTIz._V1_SX300.jpg"}, 
                 {title: "John Wick: Chapter 4", poster: "https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"}, 
                 {title: "The Godfather", poster: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"}, 
                 {title: "In the Mood for Love", poster: "https://m.media-amazon.com/images/M/MV5BYWVjNjMwZTgtMGYyYy00NmVhLWE1NDItMzFhMmJkYTNjYWIwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"}, 

@@ -290,10 +290,18 @@ function youtubeSearch(title) {
   fetch(url)
   .then(response => response.json())
   .then(data => {
+    if ('items' in data){
       var videoId = data.items[0].id.videoId;
       loadVideo(videoId);
+    }
+    else {
+      iframeDiv.setAttribute('src', './assets/images/snow.png');
+    }
   })
-  .catch(error => console.error('Error:', error));
+  .catch(error => {
+    console.error('Error:', error)
+    iframeDiv.setAttribute('src', './assets/images/snow.png');
+  });
 }
 
 function loadVideo(videoId) {
@@ -309,8 +317,9 @@ function loadVideo(videoId) {
   //var iframe = document.createElement('iframe');
 
   // Set attributes of the iframe
-  //iframeDiv.setAttribute('width', '640');
-  //iframeDiv.setAttribute('height', '360');
+  iframeDiv.setAttribute('width', '640');
+  iframeDiv.setAttribute('height', '360');
+
   iframeDiv.setAttribute('src', 'https://www.youtube.com/embed/' + videoId);
   iframeDiv.setAttribute('frameborder', '0');
   iframeDiv.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media;'); 
@@ -393,7 +402,8 @@ function saveHistory(title){
   for (i=array.length-1; i>=0; i--){
     liEl = document.createElement('li');
     liEl.textContent = array[i];
-    liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-1');
+    //liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-1');
+    liEl.classList.add('histBtn');
     //console.log(liEl);
     historyEl.appendChild(liEl);
   }
@@ -424,7 +434,8 @@ function loadFromLocalStorage(){
   for (i=array.length-1; i>=0; i--){
     liEl = document.createElement('li');
     liEl.textContent = array[i];
-    liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-2');
+    //liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-2');
+    liEl.classList.add('histBtn');
     //console.log(liEl);
     historyEl.appendChild(liEl);
   }
@@ -509,12 +520,12 @@ function initMovie(){
   //                  {title: "Parasite", poster: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg"}, 
   //                 ];
   var selected = [];
-  for (var i=0; i<5; i++){
+  for (var i=0; i<30; i++){
     var randomIndex = Math.floor(Math.random() * (tempArray.length));
     selected.push(tempArray[randomIndex]);
     tempArray.splice(randomIndex, 1);
   }
-  console.log(selected);
+  //console.log(selected);
   for (var i=0; i<selected.length; i++){
     // Append the iframe to the player div
     var button = document.createElement('button');  
@@ -642,6 +653,23 @@ $(function () {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+
   });
 
 
