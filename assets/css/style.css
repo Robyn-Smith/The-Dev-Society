@@ -1,33 +1,36 @@
 * {
-    --header-font: 'Limelight', cursive;
-    --body-font: 'Poiret One', cursive;
-    --background: black;
-    --accent-colour: #FFD700;
+  --header-font: "Limelight", cursive;
+  --body-font: "Poiret One", cursive;
+  --background: black;
+  --accent-colour: #ffd700;
 }
 
 body {
-    background-color: var(--background);
-    font-size: 17px;
-    line-height: 1.7em;
-    background-image: url("../images/top-left.svg"), url("../images/top-right.svg");
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-size: 25%;
-    background-position: top left, top right;
-
+  background-color: var(--background);
+  font-size: 17px;
+  line-height: 1.7em;
+  background-image: url("../images/top-left.svg"),
+    url("../images/top-right.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 25%;
+  background-position: top left, top right;
 }
 
-h1, h2 {
-    font-weight: normal;
-    font-family: var(--header-font);
-    color: var(--accent-colour);
-    text-align: center;
-    line-height: 200%;    
+h1,
+h2 {
+  font-weight: normal;
+  font-family: var(--header-font);
+  color: var(--accent-colour);
+  text-align: center;
+  line-height: 200%;
 }
 
-/*div {*/
-    /* margin: 2em auto; */
-/*    padding: 2em 2.5em;
-}*/
+
+div {
+  /* margin: 2em auto; */
+  padding: 2em 2.5em;
+}
+
 /* 
 .deco { 
   border: 6px solid;
@@ -59,12 +62,13 @@ h1, h2 {
 } */
 
 p {
-    font-family: var(--body-font);
-    color: var(--accent-colour);
+  font-family: var(--body-font);
+  color: var(--accent-colour);
 }
 
 main {
-  background-image: url("../images/bottom-right.svg"), url("../images/bottom-left.svg");
+  background-image: url("../images/bottom-right.svg"),
+    url("../images/bottom-left.svg");
   background-repeat: no-repeat, no-repeat;
   background-size: 25%;
   background-position: bottom right, bottom left;
@@ -90,13 +94,12 @@ section#details {
 } */
 
 #poster {
-  width: 100%;  
-  display:none;
+  display: none;
 }
 
 #map {
-  height: 400px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
+  height: 400px; /* The height is 400 pixels */
+  width: 100%; /* The width is the width of the web page */
 }
 
 #poster-button {
@@ -114,40 +117,32 @@ section#details {
 }
 
 #player {
-  /*background: url('../images/screen.jpg') no-repeat center center fixed;*/
-  background-color: var(--background);
-  font-size: 17px;
-  line-height: 1.7em;
-  background-image: url("../images/top-left.svg"), url("../images/top-right.svg");
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 25%;
-  background-position: top left, top right;
-
-  /*-webkit-background-size: cover;
+  background: url("../images/screen.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;*/
-  width: 100%;   /* Adjust as per the size of your background image */
-  height: 100%;  /* Adjust as per the size of your background image */
+  background-size: cover;
+  width: 100%; /* Adjust as per the size of your background image */
+  height: 100%; /* Adjust as per the size of your background image */
+
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
-  
 }
+
 #player iframe {
   width: 100%;
   height: 90%;
-  padding-top: 10%;
-  padding-left: 10%;
-  padding-right:8%;
-  padding-bottom: calc(90% * (6.5% / 100));
+  padding-top: 15%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 9%;
 }
-
 
 #history {
   list-style: none;
 }
 
 .bg-white {
-  background-color: rgba(555,555,555,0.5);
+  background-color: rgba(555, 555, 555, 0.5);
 }
 
 #myWatchList {
@@ -169,7 +164,7 @@ dialog {
   border: none;
   border-radius: 0.2rem;
   line-height: 2;
-  
+
   width: 40%;
   padding: 1rem;
   transition: 1s;
@@ -181,6 +176,10 @@ dialog::backdrop {
 
 #filmCard {
   position: relative;
+}
+
+.result-container {
+  width: 100%;
 }
 
 #removeBtn {
@@ -232,7 +231,7 @@ dialog {
   border: none;
   border-radius: 0.2rem;
   line-height: 2;
-  
+
   width: 40%;
   padding: 1rem;
   transition: 1s;
@@ -276,19 +275,29 @@ dialog::backdrop {
   color: #f5d106;
 }
 
-.hot {
-  padding:0;
+
+/* watchlist centering parameters*/
+
+.watchlist-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.histBtn {
-  background-color: darkslategrey;
-  border: 1rem;
-  border-radius: 0.4rem;
-  transition: 0.15s;
-  cursor: pointer;
-  color: #f5d106;;
+.return-btn {
+  align-self: flex-start;
 }
 
-.histBtn:hover {
-  background-color: cadetblue;
+.watchlist-content {
+  height: 87vh;
 }
+
+/* media parameter added for responsiveness*/
+
+@media screen and (max-width: 1200px) {
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

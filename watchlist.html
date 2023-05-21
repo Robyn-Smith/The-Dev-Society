@@ -5,25 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watchlist</title>
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/skeleton.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>My Watchlist<h1>
     </header>
-    
-    <main>
-        <aside>
-            <button id="returnBtn">Back To Homepage</button>
-        </aside>
+    <!--main tag used inplace of aside tag for better functionality-->
+    <main class="watchlist-container">
+            <button class="return-btn" id="returnBtn">Back To Homepage</button>
 
-        <section id="myWatchList"></section>
+        <section class="watchlist-content" id="myWatchList"></section>
     </main>
 
 </body>

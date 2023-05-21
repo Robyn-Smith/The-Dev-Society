@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./assets/css/reset.css" /> <!--remove-->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <!--remove-->
     <!-- <link rel="stylesheet" href="./assets/css/reset.css" />
     <link
       rel="stylesheet"
@@ -14,100 +15,120 @@
 
     <!-- jQuery UI for auto-complete-->
     <link
-        rel="stylesheet"
-        href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
     />
     <!-- slick-->
-    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./assets/slick/slick-theme.css"/>
-
-
+    <link rel="stylesheet" type="text/css" href="./assets/slick/slick.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/slick/slick-theme.css"
+    />
 
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/skeleton.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <link rel="stylesheet" href="./assets/css/skeleton.css" />
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Picturesque</title>
   </head>
 
   <body>
     <header>
-    <h1>Picturesque</h1>
+      <h1>Picturesque</h1>
     </header>
 
     <main class="">
+      <section id="welcome">
+        <div class="container">
+          <div class="deco">
+            <div class="u-full-width">
+              <h2>Search for a movie:</h2>
+              <input type="text" id="main-input" />
+              <div id="error-welcome"></div>
+              <button id="viewBtnMain">View My Watchlist</button>
+            </div>
+          </div>
+          <div id="movie-list"></div>
+        </div>
+      </section>
 
-        <section id="welcome">
-            <div class="container">
-              <div class="deco">
-                <div class="u-full-width">
-                    <h2>Search for a movie:</h2>
-                    <input type="text" id="main-input" />
-                    <div id="error-welcome"></div>
-                    <button id="viewBtnMain">View My Watchlist</button>
+      <section id="details" class="container">
+        <div class="row">
+          <aside class="three columns bg-white">
+            <form>
+              <label>Search for a Movie</label>
+              <div class="">
+                <input
+                  class="u-full-width"
+                  id="movie-input"
+                  placeholder="e.g. Batman"
+                />
+              </div>
+              <button
+                type="submit"
+                class="button button-primary"
+                id="search-button"
+              >
+                Search
+              </button>
+              <button id="backBtn">Back to Main</button>
+              <button id="viewBtnDetails">View My Watchlist</button>
+              <div id="error" class=""></div>
+            </form>
+            <hr />
+            <h5 class="">Search History</h5>
+            <ul id="history" class="list-group"></ul>
+          </aside>
+
+          <section class="nine columns bg-white">
+            <article class="">
+              <h2 id="movie-name" class="">--</h2>
+              <div class="row result-container">
+                <!-- class columns made equal sizes to prevent overlap-->
+                <div class="six columns">
+                  <button id="poster-button">
+                    <img src="#" id="poster" class="img-fluid" />
+                  </button>
+                </div>
+                <div class="six columns">
+                  <p id="year">Released:</p>
+                  <p id="actors">Actors:</p>
+                  <p id="plot">Plot:</p>
+                  <button id="addBtn">+ Add To Watchlist</button>
+                  <div id="added-message"></div>
+                  <p id="genre">Genre:</p>
+                  <p id="country">Country:</p>
+                  <div
+                    id="map"
+                    class=""
+                    style="width: 150px; height: 150px"
+                  ></div>
                 </div>
               </div>
-              <div id="movie-list"></div>
-            </div>
+            </article>
+
+            <!--dialog id="player" class="mt-4 text-center modal"-->
+            <dialog id="player">
+              <!--Cards show here-->
+              <iframe id="iframe"></iframe>
+              <!-- extra class attribute added to tag to enhance appearance-->
+              <button id="close" class="button button-primary">close</button>
+            </dialog>
           </section>
-
-        <section id="details" class="container">
-            <div class="row">
-                <aside class="three columns bg-white">
-                    <form>
-                        <label>Search for a Movie</label>
-                        <div class="">
-                            <input class="u-full-width" id="movie-input" placeholder="e.g. Batman">
-                        </div>
-                        <button type="submit" class="button button-primary" id="search-button">Search</button>
-                        <button id="backBtn">Back to Main</button>
-                        <button id="viewBtnDetails">View My Watchlist</button>
-                        <div id="error" class=""></div>
-                    </form>
-                <hr>
-                <h5 class="">Search History</h5>
-                <ul id="history" class="list-group"></ul>
-                </aside>
-    
-                <section class="nine columns bg-white">
-                    <article class="">
-                        <h2 id="movie-name" class="">--</h2>
-                        <div class="row">
-                            <div class="four columns">
-                                <button id="poster-button">
-                                    <img src="#" id="poster" class="img-fluid">
-                                </button>
-                            </div>
-                            <div class="eight columns">
-                                <p id="year">Released: </p>
-                                <p id="actors">Actors: </p>
-                                <p id="plot">Plot: </p>
-                                <button id="addBtn">+ Add To Watchlist</button>
-                                <div id="added-message"></div>                               
-                                <p id="genre">Genre:</p>
-                                <p id="country">Country:</p>
-                                <div id="map" class="" style="width: 150px; height: 150px;"></div>
-                            </div>  
-                        </div>
-                    </article>
-            
-                    <!--dialog id="player" class="mt-4 text-center modal"-->
-                    <dialog id="player">
-                    <!--Cards show here-->
-                        <iframe id="iframe"></iframe>
-                        <button id="close">close</button>
-                    </dialog>
-                </section>            
-            </div>
-        </section>     
-
+        </div>
+      </section>
     </main>
+    git
 
-<!--JavaScript links-->
+    <!--JavaScript links-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- jQuery UI-->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -117,8 +138,8 @@
     <script src="./assets/js/script.js"></script>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA&callback=initMap&libraries=&v=weekly"
-        async
-    ></script>    
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
   </body>
 </html>
