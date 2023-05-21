@@ -24,10 +24,10 @@ h1, h2 {
     line-height: 200%;    
 }
 
-div {
+/*div {*/
     /* margin: 2em auto; */
-    padding: 2em 2.5em;
-}
+/*    padding: 2em 2.5em;
+}*/
 /* 
 .deco { 
   border: 6px solid;
@@ -90,6 +90,7 @@ section#details {
 } */
 
 #poster {
+  width: 100%;  
   display:none;
 }
 
@@ -97,6 +98,12 @@ section#details {
   height: 400px;  /* The height is 400 pixels */
   width: 100%;  /* The width is the width of the web page */
 }
+
+#poster-button {
+  height: 100%;
+  padding: 0;
+}
+
 #poster-button:hover {
   opacity: 0.8;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -107,11 +114,19 @@ section#details {
 }
 
 #player {
-  background: url('../images/screen.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
+  /*background: url('../images/screen.jpg') no-repeat center center fixed;*/
+  background-color: var(--background);
+  font-size: 17px;
+  line-height: 1.7em;
+  background-image: url("../images/top-left.svg"), url("../images/top-right.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 25%;
+  background-position: top left, top right;
+
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
   width: 100%;   /* Adjust as per the size of your background image */
   height: 100%;  /* Adjust as per the size of your background image */
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
@@ -120,10 +135,10 @@ section#details {
 #player iframe {
   width: 100%;
   height: 90%;
-  padding-top: 15%;
-  padding-left: 1%;
-  padding-right:1%;
-  padding-bottom:9%;
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right:8%;
+  padding-bottom: calc(90% * (6.5% / 100));
 }
 
 
@@ -259,4 +274,21 @@ dialog::backdrop {
 
 #faveBtn:hover {
   color: #f5d106;
+}
+
+.hot {
+  padding:0;
+}
+
+.histBtn {
+  background-color: darkslategrey;
+  border: 1rem;
+  border-radius: 0.4rem;
+  transition: 0.15s;
+  cursor: pointer;
+  color: #f5d106;;
+}
+
+.histBtn:hover {
+  background-color: cadetblue;
 }
