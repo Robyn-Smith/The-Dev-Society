@@ -1,13 +1,14 @@
 * {
   --header-font: "Limelight", cursive;
   --body-font: "Poiret One", cursive;
-  --background: black;
-  --accent-colour: #ffd700;
+  --background: #232428;
+  --screen-colour: #e9e5da;
   --color-1: #bb723a;
   --color-2: #fceeb0;
   --color-3: #e09e5c;
   --color-4: #e1bd7a;
   --color-5: #d08a49;
+  --screen-shine: drop-shadow(0 0 20px var(--screen-colour));
   color: var(--color-4);
 }
 
@@ -15,11 +16,11 @@ body {
   background-color: var(--background);
   font-size: 17px;
   line-height: 1.7em;
-  background-image: url("../images/top-left.svg"),
+  /* background-image: url("../images/top-left.svg"),
     url("../images/top-right.svg");
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 25%;
-  background-position: top left, top right;
+  background-position: top left, top right; */
 }
 
 header {
@@ -55,48 +56,65 @@ div {
   padding: 2em 2.5em;
 }
 
-/* 
-.deco { 
-  border: 6px solid;
-  border-color: var(--accent-colour);
-  position: relative;
-  padding: 20px;
-}
-
-.deco:before, .deco:after {
-  border: 3px solid;
-  border-color: var(--accent-colour);
-  content: ""; 
-  position: absolute;  
-  border-color: var(--accent-colour);
-}
-
-.deco:before {
-  top: -15px;
-  right: 6px;
-  bottom: -15px;
-  left: 6px;
-}
-
-.deco:after {
-  top: 6px;
-  right: -15px;
-  bottom: 6px;
-  left: -15px;
-} */
-
 p {
   font-family: var(--body-font);
   color: var(--accent-colour);
 }
 
-main {
+.framed {
+  background-image: url("../images/bottom-right.svg"),
+                    url("../images/bottom-left.svg"),
+                    url("../images/top-left.svg"),
+                    url("../images/top-right.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 25%;
+  background-position: bottom right, bottom left, top left, top right;
+  padding-top: 10rem;
+  text-align: center;
+}
+
+#welcome div.container h2 {
+  font-family: 'Yellowtail', cursive;
+  color: var(--screen-colour);
+  filter: var(--screen-shine);
+  font-size: 10rem;
+  transform: rotate(-8deg);
+  background-color: var(--screen-colour);
+  background-image: url("../images/DD\ Film\ Grain\ Texture\ 54309.png");
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+input[type="text"] {
+  background-color: var(--screen-colour);
+  background-image: url("../images/DD\ Film\ Grain\ Texture\ 54309.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 0;
+  filter: var(--screen-shine);
+  font-size: 5rem;
+  height: 8rem;
+  font-family: var(--body-font);
+  color: var(--background);
+  font-weight: bolder;
+}
+
+#viewBtnMain {
+  text-align: center;
+  color: var(--screen-colour);
+}
+
+/* main {
   background-image: url("../images/bottom-right.svg"),
     url("../images/bottom-left.svg");
   background-repeat: no-repeat, no-repeat;
   background-size: 25%;
   background-position: bottom right, bottom left;
-}
+} */
 
 .card-text {
   font-size: 80%;
@@ -111,11 +129,6 @@ main {
 section#details {
   display: none;
 }
-
-/* 
-#header {
-  background: linear-gradient(0.25turn, #3f87a6, #f69d3c);
-} */
 
 #poster {
   display: none;
