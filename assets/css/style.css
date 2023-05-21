@@ -25,10 +25,12 @@ h2 {
   line-height: 200%;
 }
 
+
 div {
   /* margin: 2em auto; */
   padding: 2em 2.5em;
 }
+
 /* 
 .deco { 
   border: 6px solid;
@@ -99,6 +101,12 @@ section#details {
   height: 400px; /* The height is 400 pixels */
   width: 100%; /* The width is the width of the web page */
 }
+
+#poster-button {
+  height: 100%;
+  padding: 0;
+}
+
 #poster-button:hover {
   opacity: 0.8;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -116,8 +124,10 @@ section#details {
   background-size: cover;
   width: 100%; /* Adjust as per the size of your background image */
   height: 100%; /* Adjust as per the size of your background image */
+
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
 }
+
 #player iframe {
   width: 100%;
   height: 90%;
@@ -265,6 +275,7 @@ dialog::backdrop {
   color: #f5d106;
 }
 
+
 /* watchlist centering parameters*/
 
 .watchlist-container {
@@ -290,4 +301,3 @@ dialog::backdrop {
     justify-content: center;
     align-items: center;
   }
-}
