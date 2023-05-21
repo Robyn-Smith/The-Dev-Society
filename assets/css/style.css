@@ -3,6 +3,12 @@
   --body-font: "Poiret One", cursive;
   --background: black;
   --accent-colour: #ffd700;
+  --color-1: #bb723a;
+  --color-2: #fceeb0;
+  --color-3: #e09e5c;
+  --color-4: #e1bd7a;
+  --color-5: #d08a49;
+  color: var(--color-4);
 }
 
 body {
@@ -23,11 +29,23 @@ header {
   padding-top: 50px;
 } 
 
+h1 {
+  background-color: var(--color-4); /* sets fallback in case linear-gradient not supported */
+  background: linear-gradient(var(--color-1), var(--color-2));
+              /* linear-gradient(to right bottom, var(--color-4), var(--color-5)),
+              linear-gradient(to right top, var(--color-2), var(--color-4)),
+              linear-gradient(to right bottom, var(--color-5), var(--color-2));  */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
 h1,
 h2 {
   font-weight: normal;
   font-family: var(--header-font);
-  color: var(--accent-colour);
   text-align: center;
   line-height: 200%;
 }
