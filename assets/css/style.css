@@ -16,6 +16,13 @@ body {
   background-position: top left, top right;
 }
 
+header {
+  background-image: url("../images/header.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 50px;
+} 
+
 h1,
 h2 {
   font-weight: normal;
@@ -24,7 +31,6 @@ h2 {
   text-align: center;
   line-height: 200%;
 }
-
 
 div {
   /* margin: 2em auto; */
