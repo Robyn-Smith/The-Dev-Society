@@ -165,7 +165,8 @@ section#details {
                     url("../images/top-right.svg");
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 25%;
-  background-position: top left, top right;
+  background-position: bottom right, bottom left, top left, top right;
+
 
   /*-webkit-background-size: cover;
   -moz-background-size: cover;
