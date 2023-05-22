@@ -219,35 +219,7 @@ section#details {
   width: 100%;
 }
 
-#removeBtn {
-  position: absolute;
-  top: 5%;
-  right: 80%;
-  font-size: 1.5rem;
-  border: none;
-  background: none;
-  width: 15%;
-  transition: 0.15s;
-}
 
-#removeBtn:hover {
-  color: #e00909;
-}
-
-#faveBtn {
-  position: absolute;
-  top: 5%;
-  left: 76%;
-  font-size: 1.5rem;
-  border: none;
-  background: none;
-  width: 15%;
-  transition: 0.15s;
-}
-
-#faveBtn:hover {
-  color: #f5d106;
-}
 
 /* 20230519: add hot class for no more padding */
 .hot {
