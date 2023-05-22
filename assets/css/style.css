@@ -210,26 +210,6 @@ section#details {
   cursor: pointer;
 }
 
-dialog {
-  /*20230520: middle the dialog box */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-/* 20230520: end */
-
-  border: none;
-  border-radius: 0.2rem;
-  line-height: 2;
-  
-  width: 40%;
-  padding: 1rem;
-  transition: 1s;
-}
-
-dialog::backdrop {
-  background-color: #252525a8;
-}
-
 #filmCard {
   position: relative;
 }
@@ -380,3 +360,4 @@ dialog::backdrop {
     justify-content: center;
     align-items: center;
   }
+}
