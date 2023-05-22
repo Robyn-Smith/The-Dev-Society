@@ -307,6 +307,7 @@ function youtubeSearch(title) {
       loadVideo(videoId);
     }
     else {
+      console.log(data);
       iframeDiv.setAttribute('src', './assets/images/snow.png');
     }
   })
@@ -563,7 +564,7 @@ function initMovie(){
     movieList.appendChild(button);  
 
   }
-  console.log(movieList);
+  //console.log(movieList);
   // Append the iframe to the player div
   //playerDiv.appendChild(iframe);  
 

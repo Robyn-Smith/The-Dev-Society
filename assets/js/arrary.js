@@ -48,9 +48,11 @@ var tempArray = [{title: "Avatar", poster: "https://m.media-amazon.com/images/M/
                 {title: "Les Misérables", poster: "https://m.media-amazon.com/images/M/MV5BZmQ0NzI1OTQtMTJjOC00NzZlLWJkOGEtZTQ1MmJmMjU1ZjkxXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_SX300.jpg"}, 
                 {title: "The Iron Lady", poster: "https://m.media-amazon.com/images/M/MV5BODEzNDUyMDE3NF5BMl5BanBnXkFtZTcwMTgzOTg3Ng@@._V1_SX300.jpg"}, 
                 {title: "The King's Speech", poster: "https://m.media-amazon.com/images/M/MV5BMzU5MjEwMTg2Nl5BMl5BanBnXkFtZTcwNzM3MTYxNA@@._V1_SX300.jpg"}, 
+                {title: "Italian Job", poster: "https://m.media-amazon.com/images/M/MV5BMDE1ODU2YWYtMTFlMS00ZTk0LWI0NzUtMzIzZmM4MzA0NTcyXkEyXkFqcGdeQXVyNTkwMTc4NzY@._V1_SX300.jpg"},
                 ];
 
                 var availableTags = ["The Godfather",
+                "Italian Job",
                 "The Shawshank Redemption",
                 "Pulp Fiction", 
                 "Fight Club", 
@@ -59,6 +61,7 @@ var tempArray = [{title: "Avatar", poster: "https://m.media-amazon.com/images/M/
                 "Inception",
                 "Schindler's List",
                 "The Matrix",
+                "Top Gun: Maverick",
                 "The Lion King",
                 "Titanic",
                 "The Lord of the Rings: The Fellowship of the Ring",
