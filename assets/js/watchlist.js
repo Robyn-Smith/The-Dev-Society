@@ -22,8 +22,7 @@ function displayWatchList() {
         filmCards.setAttribute('data-index', `${i}`)
         filmCards.innerHTML = 
         `<img id="listPoster" src="${poster}" alt="poster for the movie ${title}">
-        <button id="removeBtn">X</button>
-        <button id="faveBtn">☆</button>`
+        <button id="removeBtn">X</button>`
 
         myWatchList.appendChild(filmCards)
     }
@@ -35,17 +34,18 @@ function generateModal(index) {
     // Grab details of selected film using its index
     var filmInfo = watchList[index]
 
+    // Assign each child of the watchlist to a variable
     var title = filmInfo.title
     var year = filmInfo.year
     var actors = filmInfo.actors
     var plot = filmInfo.plot
     var poster = filmInfo.poster
 
-    // Generate the html for the modal
+    // Generate the html for the modal, this contains information about the clicked film
     var movieInfo = document.createElement('dialog')
     movieInfo.innerHTML =
     `<div>
-        <img id="savedPoster" src="${poster}" alt="poster for the movie ${title}"></img>
+        <img id="savedPoster" src="${poster}" alt="Poster for the movie ${title}"></img>
     </div>
     <div>
         <p id="savedTitle">${title}</p>
@@ -60,6 +60,7 @@ function generateModal(index) {
 
     // Close the modal if the user clicks outside of it
     movieInfo.addEventListener("click", function(e) {
+        // Get bounds of modal
         const dialogDimensions = movieInfo.getBoundingClientRect()
         if (
           e.clientX < dialogDimensions.left ||
@@ -73,13 +74,17 @@ function generateModal(index) {
       })
 }
 
+// Store watchList to local storage
 function storeWatchList() {
     localStorage.setItem('watchList', JSON.stringify(watchList))
 }
 
+// Set initial conditions for the page
 function init() {
+    // Get the watchList out of local storage and assign to storedWatchList
     var storedWatchList = JSON.parse(localStorage.getItem('watchList'))
     
+    // If the storedWatchList is populated, assign to watchList
     if (storedWatchList !== null) {
         watchList = storedWatchList
     }
