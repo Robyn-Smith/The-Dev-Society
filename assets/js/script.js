@@ -87,6 +87,11 @@ function retrieveOMDB(movie){
         }
         console.log(parseInt(rating));
         movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
+          addButton.textContent = '+ Add To Watchlist'
+        } else {
+          addButton.textContent = '- Remove From Watchlist'
+        }
       }
       if ('Released' in data){
         yearEl.textContent = "Year: " + data.Released;
@@ -170,6 +175,11 @@ function retrieveOMDBfromWelcome(movie){
         }
         console.log(parseInt(rating));
         movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
+          addButton.textContent = '+ Add To Watchlist'
+        } else {
+          addButton.textContent = '- Remove From Watchlist'
+        }
       }
       if ('Released' in data){
         yearEl.textContent = "Year: " + data.Released;
@@ -559,14 +569,23 @@ function pushToWatchList(watchList, options) {
       addedMessageEl.textContent = `Added ${movieNameEl.textContent} to your watchlist`
       setTimeout(function() {
           addedMessageEl.textContent = ''
-      }, 1000)
+      }, 2000)
       storeWatchList()
+      addButton.textContent = '- Remove From Watchlist'
   } else {
-      addedMessageEl.textContent = `${movieNameEl.textContent} is already in your watchlist`
+      for (var i = 0; i < watchList.length; i++) {
+        var index = watchList[i]
+        if (index.title == options.title) {
+            watchList.splice(i, 1)
+        }
+      }
+      addedMessageEl.textContent = `Removed ${movieNameEl.textContent} from your watchlist`
       setTimeout(function() {
-          addedMessageEl.textContent = ''
-      }, 1000)
-  }
+        addedMessageEl.textContent = ''
+      }, 2000)
+      storeWatchList()
+      addButton.textContent = '+ Add To Watchlist'
+}
 }
 
 
