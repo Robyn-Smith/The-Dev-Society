@@ -28,18 +28,20 @@ header {
   background-repeat: no-repeat;
   background-position: center top;
   padding-top: 50px;
-} 
+}
 
 h1 {
-  background-color: var(--color-4); /* sets fallback in case linear-gradient not supported */
+  background-color: var(
+    --color-4
+  ); /* sets fallback in case linear-gradient not supported */
   background: linear-gradient(var(--color-1), var(--color-2));
-              /* linear-gradient(to right bottom, var(--color-4), var(--color-5)),
+  /* linear-gradient(to right bottom, var(--color-4), var(--color-5)),
               linear-gradient(to right top, var(--color-2), var(--color-4)),
               linear-gradient(to right bottom, var(--color-5), var(--color-2));  */
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
 
@@ -52,8 +54,8 @@ h2 {
 }
 
 /*div {*/
-  /* margin: 2em auto; */
- /* padding: 2em 2.5em;
+/* margin: 2em auto; */
+/* padding: 2em 2.5em;
 }*/
 
 p {
@@ -63,9 +65,8 @@ p {
 
 .framed {
   background-image: url("../images/bottom-right.svg"),
-                    url("../images/bottom-left.svg"),
-                    url("../images/top-left.svg"),
-                    url("../images/top-right.svg");
+    url("../images/bottom-left.svg"), url("../images/top-left.svg"),
+    url("../images/top-right.svg");
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 25%;
   background-position: bottom right, bottom left, top left, top right;
@@ -74,7 +75,7 @@ p {
 }
 
 #welcome div.container h2 {
-  font-family: 'Yellowtail', cursive;
+  font-family: "Yellowtail", cursive;
   color: var(--screen-colour);
   filter: var(--screen-shine);
   font-size: 10rem;
@@ -85,7 +86,7 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
 
@@ -126,6 +127,15 @@ input[type="text"] {
   color: #990000;
 }
 
+aside {
+  padding: 1%;
+  margin: auto;
+}
+
+article {
+  margin: auto;
+}
+
 section#details {
   display: none;
 }
@@ -141,7 +151,7 @@ section#details {
 
 #poster-button {
   height: 100%;
-  padding: 0;
+  margin-left: 5em;
 }
 
 #poster-button:hover {
@@ -160,9 +170,8 @@ section#details {
   font-size: 17px;
   line-height: 1.7em;
   background-image: url("../images/bottom-right.svg"),
-                    url("../images/bottom-left.svg"),
-                    url("../images/top-left.svg"),
-                    url("../images/top-right.svg");
+    url("../images/bottom-left.svg"), url("../images/top-left.svg"),
+    url("../images/top-right.svg");
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 25%;
   background-position: top left, top right;
@@ -171,19 +180,19 @@ section#details {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
-  width: 100%;   /* Adjust as per the size of your background image */
-  height: 100%;  /* Adjust as per the size of your background image */
+  width: 100%; /* Adjust as per the size of your background image */
+  height: 100%; /* Adjust as per the size of your background image */
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
 }
 /* 20230519 end of change style to match welcome page */
 
 #player iframe {
-/*20230519: change the padding to match the screen */
+  /*20230519: change the padding to match the screen */
   width: 100%;
   height: 90%;
   padding-top: 10%;
   padding-left: 10%;
-  padding-right:8%;
+  padding-right: 8%;
   padding-bottom: calc(90% * (6.5% / 100));
 }
 
@@ -215,12 +224,12 @@ dialog {
   display: flex;
   flex-direction: column;
   align-items: center;
-/* 20230520: end */
+  /* 20230520: end */
 
   border: none;
   border-radius: 0.2rem;
   line-height: 2;
-  
+
   width: 40%;
   padding: 1rem;
   transition: 1s;
@@ -270,7 +279,7 @@ dialog::backdrop {
 
 /* 20230519: add hot class for no more padding */
 .hot {
-  padding:0;
+  padding: 0;
 }
 /* 20230519: add history button style */
 .histBtn {
@@ -279,14 +288,14 @@ dialog::backdrop {
   border-radius: 0.4rem;
   transition: 0.15s;
   cursor: pointer;
-  color: #f5d106;;
+  color: #f5d106;
 }
 
 .histBtn:hover {
   background-color: cadetblue;
 }
 #details {
-  margin:10px;
+  margin: 10px;
   padding: 10px;
 }
 
@@ -353,7 +362,6 @@ dialog::backdrop {
   color: #f5d106;
 }
 
-
 /* watchlist centering parameters*/
 
 .watchlist-container {
@@ -370,6 +378,11 @@ dialog::backdrop {
   height: 87vh;
 }
 
+.img-side {
+  justify-content: center;
+  align-items: center;
+  padding-left: 10;
+}
 
 /* media parameter added for responsiveness*/
 
@@ -380,3 +393,4 @@ dialog::backdrop {
     justify-content: center;
     align-items: center;
   }
+}

@@ -147,6 +147,7 @@ sup {
 
 img {
   border-style: none;
+  justify-content: center;
 }
 
 /* Forms
@@ -174,7 +175,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +186,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -318,7 +321,7 @@ textarea {
  */
 
 details {
-  display: block;
+  display: flex;
 }
 
 /*
