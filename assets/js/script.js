@@ -88,9 +88,11 @@ function retrieveOMDB(movie){
         }
         console.log(parseInt(rating));
         movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        // If the film's title isn't in local storage, set the add button's text to '+ Add To Watchlist"
         if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
           addButton.textContent = '+ Add To Watchlist'
         } else {
+          // Otherwise set it to '- Remove From Watchlist'
           addButton.textContent = '- Remove From Watchlist'
         }
       }
@@ -176,9 +178,11 @@ function retrieveOMDBfromWelcome(movie){
         }
         console.log(parseInt(rating));
         movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        // If the film's title isn't in local storage, set the add button's text to '+ Add To Watchlist"
         if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
           addButton.textContent = '+ Add To Watchlist'
         } else {
+          // Otherwise set it to '- Remove From Watchlist'
           addButton.textContent = '- Remove From Watchlist'
         }
       }
@@ -391,8 +395,10 @@ function saveHistory(title){
  */
 function loadFromLocalStorage(){
   var array = [];
+  // Get watchlist out of local storage and assign to storedWatchList
   var storedWatchList = JSON.parse(localStorage.getItem('watchList') || "[]")
 
+  // If the storedWatchList is populated, assign to watchList
   if(storedWatchList !== null) {
     watchList = storedWatchList
   }
@@ -536,7 +542,6 @@ function initMovie(){
 // Checks if the film title already exists in the watchlist before trying to add it
 function pushToWatchList(watchList, options) {
   if (!watchList.find(({title}) => title === options.title)) {
-      //console.log(options)
       watchList.push(options)
       // Sets the message that appears beneath the add button
       addedMessageEl.textContent = `Added ${movieNameEl.textContent} to your watchlist`
@@ -545,20 +550,24 @@ function pushToWatchList(watchList, options) {
           addedMessageEl.textContent = ''
       }, 2000)
       storeWatchList()
-      // Change button text
+      // Change button text to remove
       addButton.textContent = '- Remove From Watchlist'
   } else {
+      // Loop through watchList, if the title of the removed film is in the watchList, remove it from the watchList and update the watchList
       for (var i = 0; i < watchList.length; i++) {
         var index = watchList[i]
         if (index.title == options.title) {
             watchList.splice(i, 1)
         }
       }
+      // Sets the message that appears beneath the remove button
       addedMessageEl.textContent = `Removed ${movieNameEl.textContent} from your watchlist`
+      // Remove added message after 2 seconds
       setTimeout(function() {
         addedMessageEl.textContent = ''
       }, 2000)
       storeWatchList()
+      // Change button text to add
       addButton.textContent = '+ Add To Watchlist'
   }
 }
@@ -586,7 +595,9 @@ $(function () {
   // search button clicked
   searchButton.addEventListener('click', getApi);
 
+  // Event listener for clicks on the add/remove button
   addButton.addEventListener('click', function() {
+    // Film information to be stored/removed from the watchList
     var options = {
       title: movieNameEl.textContent,
       year: yearEl.textContent,
@@ -628,13 +639,19 @@ $(function () {
 
   backButton.addEventListener('click', backToMain);
 
+  // Event listener for view watchlist button on the welcome page
   viewButtonMain.addEventListener('click', function(e) {
+    // Prevent the page from reloading on click
     e.preventDefault()
+    // Sets the document location to the watchlist page
     document.location.replace('watchlist.html')
   })
 
+  // Event listener for view watchlist button on the results page
   viewButtonDetails.addEventListener('click', function(e) {
+    // Prevent the page from reloading on click
     e.preventDefault()
+    // Sets the document location to the watchlist page
     document.location.replace('watchlist.html')
   })
 
