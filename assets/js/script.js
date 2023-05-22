@@ -42,6 +42,8 @@ var detailsSection = document.getElementById('details');
 var movieArray = ['https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg', ];
 
 var watchList = []
+// 20230520: saveVideoId
+var saveVideoId='';
 
 
 /**
@@ -335,6 +337,8 @@ function loadVideo(videoId) {
   iframeDiv.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media;'); 
   //gyroscope; picture-in-picture');
   iframeDiv.setAttribute('allowfullscreen', '');
+  // 20230520: saveViodeoId
+  saveVideoId = videoId;
 
   // Append the iframe to the player div
   //playerDiv.appendChild(iframe);  
@@ -378,7 +382,7 @@ function initMap2(lat, long) {
     position: uk,
     map: map,
   });
-  mapEl.style.display = "block";
+  //mapEl.style.display = "block";
 }
 
 
@@ -480,6 +484,8 @@ function getApi(event) {
 
   }
   movieInput.value = '';  
+  // 20230520: 
+  movieInput.blur(); 
 }
 
 function mainLogic(movie){
@@ -494,6 +500,8 @@ function mainLogic(movie){
 
 function showModal1(){
   console.log(playerDialog);
+  // 20230520: saveVideoId
+  loadVideo(saveVideoId);
   playerDialog.showModal();
 }
 function closeModal1() {
