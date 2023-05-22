@@ -566,11 +566,14 @@ function pushToWatchList(watchList, options) {
   if (!watchList.find(({title}) => title === options.title)) {
       //console.log(options)
       watchList.push(options)
+      // Sets the message that appears beneath the add button
       addedMessageEl.textContent = `Added ${movieNameEl.textContent} to your watchlist`
+      // Remove added message after 2 seconds
       setTimeout(function() {
           addedMessageEl.textContent = ''
       }, 2000)
       storeWatchList()
+      // Change button text
       addButton.textContent = '- Remove From Watchlist'
   } else {
       for (var i = 0; i < watchList.length; i++) {
