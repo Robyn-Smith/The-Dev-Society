@@ -48,10 +48,10 @@ function generateModal(index) {
         <img id="savedPoster" src="${poster}" alt="poster for the movie ${title}"></img>
     </div>
     <div>
-        <p id="savedTitle">Title: <span>${title}</span></p>
-        <p id="savedYear">Year: <span>${year}</span></p>
-        <p id="savedActors">Actors: <span>${actors}</span></p>
-        <p id="savedPlot">Plot: <span>${plot}</span></p>
+        <p id="savedTitle">${title}</p>
+        <p id="savedYear">${year}</p>
+        <p id="savedActors">${actors}</p>
+        <p id="savedPlot">${plot}</p>
     </div>`
 
     myWatchList.appendChild(movieInfo)
