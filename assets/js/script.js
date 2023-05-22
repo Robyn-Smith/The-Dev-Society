@@ -1,7 +1,7 @@
 var apiKey = 'e53831fe';
 // YouTube API
-//var apiKey2 = 'AIzaSyAQ6qYnLqpxfSWS1FZVakvqLEOfVjXlJp4';
-var apiKey2 = 'AIzaSyDE6KlHz8PmrCyHMADxzBtkvSrMU2pzJ8c';
+var apiKey2 = 'AIzaSyAQ6qYnLqpxfSWS1FZVakvqLEOfVjXlJp4';
+//var apiKey2 = 'AIzaSyDE6KlHz8PmrCyHMADxzBtkvSrMU2pzJ8c';
 
 var apiKey3a = '77ca7d6ec3122dd37ca00d73aa375bef';
 var apiKey3 = 'AIzaSyD7xo_u2lBGkDL4xt_JdCr8ew06xLLt0pI';
@@ -42,7 +42,6 @@ var detailsSection = document.getElementById('details');
 var movieArray = ['https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg', ];
 
 var watchList = []
-// 20230520: saveVideoId
 var saveVideoId='';
 
 
@@ -223,37 +222,13 @@ function retrieveOMDBfromWelcome(movie){
 }
 
 
-
 /**
- * to retrieve the Latitude and Longitude from city name using api 
- * @param city
+ * to perform the geocode that map the country code to lat and long
+ * @param city 
  * @returns respoonse.json() upon response failed
  */
-/*function retrieveLatLong(countryName) {
-  console.log(countryName);
-  // Google Geocoding API url
-  var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${countryName}&key={apiKey2}`;
-
-  // Fetch the data from the API
-  fetch(url)
-      .then(response => response.json())  // Convert response to JSON
-      .then(data => {
-          console.log(data);
-          if (data.status === "OK") {
-              // Get the location (latitude and longitude) from the response
-              var location = data.results[0].geometry.location;
-              console.log(location);
-              //initMap2(lat, long);              
-          } else {
-              console.log('No results found');
-          }
-      })
-      .catch(error => console.log('Error: ', error));
-}*/
-
 function retrieveLatLong(city){
 
-  //console.log(city);
   //var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + '&appid=' + apiKey3a;
   var requestUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA`;
 
@@ -270,12 +245,8 @@ function retrieveLatLong(city){
   })
   .then(function(data){
     if (data.status == "OK"){
-      //console.log('retrieveLatLong');
-      //console.log(data);
       lat = data.results[0].geometry.location.lat;
       long = data.results[0].geometry.location.lng;
-      //console.log(lat);
-      //console.log(long);
       initMap2(lat, long);
   
     } else {
@@ -293,7 +264,11 @@ function retrieveLatLong(city){
 }
 
 
-
+/**
+ * to perform the geocode that map the country code to lat and long
+ * @param title  movie title to search
+ * @returns respoonse.json() upon response failed
+ */
 function youtubeSearch(title) {
   
   console.log(title);
@@ -321,14 +296,6 @@ function loadVideo(videoId) {
   
   // playerDiv.innerHTML = '<iframe width="640" height="360" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
-  // Clear out the previous iframe
-  //while (playerDiv.firstChild) {
-  //  playerDiv.removeChild(playerDiv.firstChild);
-  //}
-
-  // Create a new iframe
-  //var iframe = document.createElement('iframe');
-
   // Set attributes of the iframe
   iframeDiv.setAttribute('width', '640');
   iframeDiv.setAttribute('height', '360');
@@ -336,13 +303,9 @@ function loadVideo(videoId) {
   iframeDiv.setAttribute('src', 'https://www.youtube.com/embed/' + videoId);
   iframeDiv.setAttribute('frameborder', '0');
   iframeDiv.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media;'); 
-  //gyroscope; picture-in-picture');
   iframeDiv.setAttribute('allowfullscreen', '');
-  // 20230520: saveViodeoId
   saveVideoId = videoId;
 
-  // Append the iframe to the player div
-  //playerDiv.appendChild(iframe);  
 
 }
 
@@ -367,8 +330,6 @@ function initMap() {
 
 // Initialize and add the map
 function initMap2(lat, long) {
-  // The location of the UK
-  //console.log("here!")
   var uk = { lat: lat, lng: long };
   // The map, centered at the UK
   var map = new google.maps.Map(document.getElementById("map"), {
@@ -383,7 +344,6 @@ function initMap2(lat, long) {
     position: uk,
     map: map,
   });
-  //mapEl.style.display = "block";
 }
 
 
@@ -417,9 +377,7 @@ function saveHistory(title){
   for (i=array.length-1; i>=0; i--){
     liEl = document.createElement('li');
     liEl.textContent = array[i];
-    //liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-1');
     liEl.classList.add('histBtn');
-    //console.log(liEl);
     historyEl.appendChild(liEl);
   }
   
@@ -449,14 +407,17 @@ function loadFromLocalStorage(){
   for (i=array.length-1; i>=0; i--){
     liEl = document.createElement('li');
     liEl.textContent = array[i];
-    //liEl.classList.add('histBtn',  'btn', 'btn-primary', 'w-100', 'list-group-item', 'list-group-item-action', 'mb-2');
     liEl.classList.add('histBtn');
-    //console.log(liEl);
     historyEl.appendChild(liEl);
   }
 
 }
 
+/**
+ * to store the watchlist to localStorage
+ * @param None
+ * @returns None
+ */
 function storeWatchList() {
   localStorage.setItem('watchList', JSON.stringify(watchList))
 }
@@ -489,62 +450,66 @@ function getApi(event) {
   movieInput.blur(); 
 }
 
+/**
+ * to perform OMDB search from Welcome page
+ * @param movie movie name
+ * @returns None
+ */
 function mainLogic(movie){
 
   retrieveOMDBfromWelcome(movie);
-  //welcomeSection.setAttribute("style", "display:none;");
-  //detailsSection.setAttribute("style", "display:inline;");
   mainInput.value = '';
   mainInput.blur(); 
 
 }
 
+/**
+ * to show the Modal out
+ * @param none
+ * @returns none
+ */
 function showModal1(){
-  console.log(playerDialog);
-  // 20230520: saveVideoId
   loadVideo(saveVideoId);
   playerDialog.showModal();
 }
+/**
+ * to close the modal 
+ * @param none
+ * @returns None
+ */
 function closeModal1() {
   playerDialog.close();
   iframeDiv.setAttribute('src', '');
 }
 
+/**
+ * to perform back to main page function
+ * @param none
+ * @returns none
+ */
 function backToMain(){
   event.preventDefault();
   welcomeSection.setAttribute("style", "display:inline;");
   detailsSection.setAttribute("style", "display:none;");
 }
 
-
+/**
+ * Initialization
+ * @param none
+ * @returns none
+ */
 function initMovie(){
 
   // Clear out the previous iframe
   while (movieList.firstChild) {
     movieList.removeChild(movieList.firstChild);
   }
-
-  // Create a new list
-  
-  // Random Select 5 movies
-  // var tempArray = [{title: "Avatar", poster: "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"}, 
-  //                  {title: "Fall", poster: "https://m.media-amazon.com/images/M/MV5BNGI3MWYwYjItNzZhYi00ZWIzLTkyMzYtN2JmNjg3ODg1NTg4XkEyXkFqcGdeQXVyMTMwMDA5ODU3._V1_SX300.jpg"}, 
-  //                  {title: "Puss in Boots", poster: "https://m.media-amazon.com/images/M/MV5BMTMxMTU5MTY4MV5BMl5BanBnXkFtZTcwNzgyNjg2NQ@@._V1_SX300.jpg"}, 
-  //                  {title: "Inception", poster: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"}, 
-  //                  {title: "Titanic", poster: "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"}, 
-  //                  {title: "Squid Game", poster: "https://m.media-amazon.com/images/M/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtMjc2YWMzMDEwMTA3XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_SX300.jpg"}, 
-  //                  {title: "Nomadland", poster: "https://m.media-amazon.com/images/M/MV5BMDRiZWUxNmItNDU5Yy00ODNmLTk0M2ItZjQzZTA5OTJkZjkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"}, 
-  //                  {title: "Parasite", poster: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg"}, 
-  //                  {title: "No Time to Die ", poster: "https://m.media-amazon.com/images/M/MV5BYWQ2NzQ1NjktMzNkNS00MGY1LTgwMmMtYTllYTI5YzNmMmE0XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"}, 
-  //                  {title: "Parasite", poster: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg"}, 
-  //                 ];
   var selected = [];
   for (var i=0; i<30; i++){
     var randomIndex = Math.floor(Math.random() * (tempArray.length));
     selected.push(tempArray[randomIndex]);
     tempArray.splice(randomIndex, 1);
   }
-  //console.log(selected);
   for (var i=0; i<selected.length; i++){
     // Append the iframe to the player div
     var button = document.createElement('button');  
@@ -564,10 +529,8 @@ function initMovie(){
     movieList.appendChild(button);  
 
   }
-  //console.log(movieList);
-  // Append the iframe to the player div
-  //playerDiv.appendChild(iframe);  
 
+  
 }
 
 // Checks if the film title already exists in the watchlist before trying to add it
@@ -597,7 +560,7 @@ function pushToWatchList(watchList, options) {
       }, 2000)
       storeWatchList()
       addButton.textContent = '+ Add To Watchlist'
-}
+  }
 }
 
 
