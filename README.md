@@ -5,13 +5,13 @@ As a user I want to be able to search for my favourite films, as well as films I
 
 **Acceptance Criteria**
 When I search for a film
-Then I am provided with an image of the film poster, the trailer, name, rating, location, cast and plot of the film
+Then I am provided with an image of the film poster, the trailer, name, cast,  plot of the film, country of creation and a map of location
 When I press a button
 Then the film saves to my watch list
 When I view my watchlist 
-Then I am presented with the names of all the films I have saved
+Then I am presented with the posters of all the films I have saved
 When I have watched a film 
-Then I am able to tick off (checklist)/ remove this from my watch list
+Then I am able remove this from my watch list
 When I look at the website from multiple devices
 Then I am presented with a responsive website that looks good on all devices
 ```
