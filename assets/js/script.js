@@ -15,6 +15,7 @@ var addButton = document.getElementById('addBtn')
 var viewButtonMain = document.getElementById('viewBtnMain')
 var viewButtonDetails = document.getElementById('viewBtnDetails')
 var backButton = document.getElementById('backBtn');
+var playerDiv = document.querySelector('.modal');
 
 var movieNameEl = document.getElementById('movie-name');
 var yearEl = document.getElementById('year');
@@ -43,6 +44,7 @@ var movieArray = ['https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N
 
 var watchList = []
 var saveVideoId='';
+var currentMovie = "";
 
 
 /**
@@ -72,7 +74,8 @@ function retrieveOMDB(movie){
       if ('Title' in data) {
         movieNameEl.textContent =  data.Title;
         // do the trailer part!
-        youtubeSearch(data.Title);
+        currentMovie = data.Title;
+        //youtubeSearch(data.Title);
         saveHistory(data.Title);          
       }
       if ('imdbRating' in data){
@@ -80,14 +83,14 @@ function retrieveOMDB(movie){
         var a ="";
         if (rating != 'N/A'){
           rating = parseInt(rating);
-          console.log(rating);
           while (rating >= 2){
-            a = a + "⭐";
+            //a = a + "⭐";
+            a = a + '<span class="star">⭐</span>';
             rating -=2;
           }
         }
-        console.log(parseInt(rating));
-        movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        //movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        movieNameEl.innerHTML =  data.Title + " " + a + " (" + data.imdbRating + ")";
         // If the film's title isn't in local storage, set the add button's text to '+ Add To Watchlist"
         if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
           addButton.textContent = '+ Add To Watchlist'
@@ -118,7 +121,6 @@ function retrieveOMDB(movie){
 
       if ('Country' in data){
         var a = data.Country.split(", ");
-        console.log(a[0]);
         countryEl.textContent = "Country: " + a[0];
         retrieveLatLong(data.Country.split(", ")[0]);
       }  
@@ -162,7 +164,8 @@ function retrieveOMDBfromWelcome(movie){
       if ('Title' in data) {
         movieNameEl.textContent =  data.Title;
         // do the trailer part!
-        youtubeSearch(data.Title);
+        currentMovie = data.Title;
+        //youtubeSearch(data.Title);
         saveHistory(data.Title);          
       }
       if ('imdbRating' in data){
@@ -170,14 +173,14 @@ function retrieveOMDBfromWelcome(movie){
         var a ="";
         if (rating != 'N/A'){
           rating = parseInt(rating);
-          console.log(rating);
           while (rating >= 2){
-            a = a + "⭐";
+            //a = a + "⭐";
+            a = a + '<span class="star">⭐</span>';
             rating -=2;
           }
         }
-        console.log(parseInt(rating));
-        movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        //movieNameEl.textContent =  data.Title +" " + a + " (" + data.imdbRating + ")";
+        movieNameEl.innerHTML =  data.Title + " " + a + " (" + data.imdbRating + ")";
         // If the film's title isn't in local storage, set the add button's text to '+ Add To Watchlist"
         if (!watchList.find(({title}) => title === movieNameEl.textContent)) {
           addButton.textContent = '+ Add To Watchlist'
@@ -208,7 +211,6 @@ function retrieveOMDBfromWelcome(movie){
 
       if ('Country' in data){
         var a = data.Country.split(", ");
-        console.log(a[0]);
         countryEl.textContent = "Country: " + a[0];
         retrieveLatLong(data.Country.split(", ")[0]);
       }  
@@ -275,7 +277,6 @@ function retrieveLatLong(city){
  */
 function youtubeSearch(title) {
   
-  console.log(title);
   var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + title + " trailer&type=video&key=" + apiKey2;
 
   fetch(url)
@@ -475,8 +476,11 @@ function mainLogic(movie){
  * @returns none
  */
 function showModal1(){
-  loadVideo(saveVideoId);
-  playerDialog.showModal();
+  youtubeSearch(currentMovie);
+  //loadVideo(saveVideoId);
+  //playerDialog.showModal();
+  playerDiv.style.display = "block"; // to show
+
 }
 /**
  * to close the modal 
@@ -484,8 +488,10 @@ function showModal1(){
  * @returns None
  */
 function closeModal1() {
-  playerDialog.close();
+  //playerDialog.close();
   iframeDiv.setAttribute('src', '');
+  playerDiv.style.display = "none"; // to show
+
 }
 
 /**
@@ -528,8 +534,6 @@ function initMovie(){
     button.appendChild(imgsrc);
     button.addEventListener('click', function(event) {
       var movie = event.currentTarget.getAttribute('data-movie');
-      console.log(movie)
-      console.log(event);
       mainLogic(movie);
     });      
     movieList.appendChild(button);  
