@@ -1,7 +1,7 @@
 # The-Dev-Society
 ```
 **User Story**
-As a user I want to be able to search for my favourite films and films I haven’t seen yet to find out more information about them and add them to my watch list. So that I can store my watch list and remember which films I would like to watch next. 
+As a user I want to be able to search for my favourite films, as well as films I haven’t seen yet, to find out more information about them. I then want to add films that interest me to my watch list. So that I can remember which films I would like to watch next.
 
 **Acceptance Criteria**
 When I search for a film
