@@ -63,6 +63,9 @@ p {
   color: var(--accent-colour);
 }
 
+/* **************************************** */
+/* Search */
+
 .framed {
   background-image: url("../images/bottom-right.svg"),
     url("../images/bottom-left.svg"), url("../images/top-left.svg"),
@@ -71,10 +74,10 @@ p {
   background-size: 25%;
   background-position: bottom right, bottom left, top left, top right;
   padding-top: 10rem;
-  text-align: center;
+  text-align: center; 
 }
 
-#welcome div.container h2 {
+#projected-h {
   font-family: "Yellowtail", cursive;
   color: var(--screen-colour);
   filter: var(--screen-shine);
@@ -109,39 +112,33 @@ input[type="text"] {
   color: var(--screen-colour);
 }
 
-/* main {
-  background-image: url("../images/bottom-right.svg"),
-    url("../images/bottom-left.svg");
-  background-repeat: no-repeat, no-repeat;
-  background-size: 25%;
-  background-position: bottom right, bottom left;
-} */
-
-.card-text {
-  font-size: 80%;
-}
-
 /* add the message display none initially */
 #error {
   /*display:none;*/
   color: #990000;
 }
 
+/* ************************************** */
+/* Movie details */
+
 section#details {
   display: none;
+}
+
+.bg-white {
+  background-color: rgba(555, 555, 555, 0.5);
 }
 
 aside {
   padding: 1%;
 }
 
-#poster {
-  display: none;
+#history {
+  list-style: none;
 }
 
-#map {
-  height: 400px; /* The height is 400 pixels */
-  width: 100%; /* The width is the width of the web page */
+.result-container {
+  width: 100%;
 }
 
 #poster-button {
@@ -159,6 +156,11 @@ aside {
   visibility: visible;
 }
 
+#map {
+  height: 400px; /* The height is 400 pixels */
+  width: 100%; /* The width is the width of the web page */
+}
+
 #player {
   display: flex;
   flex-direction: column;
@@ -166,6 +168,7 @@ aside {
   justify-content: center; /* Horizontal center */
   text-align: center; /* For inline elements */
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -188,24 +191,23 @@ aside {
   width: 80%;   /* Adjust as per the size of your background image */
   height: 80%;  /* Adjust as per the size of your background image */
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
-
+  
 }
+
 #player.modal {
   display: none;
 }
+
 #close {
   margin: auto; /* This will center*/
 }
 
-
-
-#history {
-  list-style: none;
+.star {
+  animation: flash 1s infinite; 
 }
 
-.bg-white {
-  background-color: rgba(555, 555, 555, 0.5);
-}
+/* ************************************ */
+/* Watchlist */
 
 #myWatchList {
   display: flex;
@@ -226,14 +228,11 @@ aside {
   position: relative;
 }
 
-.result-container {
-  width: 100%;
-}
-
 /* 20230519: add hot class for no more padding */
 .hot {
   padding: 0;
 }
+
 /* 20230519: add history button style */
 .histBtn {
   background-color: darkslategrey;
@@ -247,6 +246,7 @@ aside {
 .histBtn:hover {
   background-color: cadetblue;
 }
+
 #details {
   margin: 10px;
   padding: 10px;
@@ -334,10 +334,6 @@ dialog p {
 
 .watchlist-content {
   height: 87vh;
-}
-
-.star {
-  animation: flash 1s infinite; 
 }
 
 @keyframes flash { 
