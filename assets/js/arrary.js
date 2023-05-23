@@ -51,7 +51,8 @@ var tempArray = [{title: "Avatar", poster: "https://m.media-amazon.com/images/M/
                 {title: "Italian Job", poster: "https://m.media-amazon.com/images/M/MV5BMDE1ODU2YWYtMTFlMS00ZTk0LWI0NzUtMzIzZmM4MzA0NTcyXkEyXkFqcGdeQXVyNTkwMTc4NzY@._V1_SX300.jpg"},
                 ];
 
-                var availableTags = ["The Godfather",
+// for auto-complete
+var availableTags = ["The Godfather",
                 "Italian Job",
                 "The Shawshank Redemption",
                 "Pulp Fiction", 
