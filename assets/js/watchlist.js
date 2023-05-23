@@ -44,10 +44,10 @@ function generateModal(index) {
     // Generate the html for the modal, this contains information about the clicked film
     var movieInfo = document.createElement('dialog')
     movieInfo.innerHTML =
-    `<div>
+    `<div class="six columns">
         <img id="savedPoster" src="${poster}" alt="Poster for the movie ${title}"></img>
     </div>
-    <div>
+    <div class="six columns">
         <p id="savedTitle">${title}</p>
         <p id="savedYear">${year}</p>
         <p id="savedActors">${actors}</p>

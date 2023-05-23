@@ -256,6 +256,7 @@ aside {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 #listPoster {
@@ -281,14 +282,25 @@ dialog {
   border: none;
   border-radius: 0.2rem;
   line-height: 2;
-
+  background-color: var(--background);
   width: 40%;
   padding: 1rem;
   transition: 1s;
+  max-height: 50vh;
 }
 
 dialog::backdrop {
-  background-color: #252525a8;
+  background-color: #131313a8;
+}
+
+dialog img {
+  display: block;
+  max-width: 100%;
+}
+
+dialog p {
+  display: block;
+  max-width: 100%;
 }
 
 #filmCard {
