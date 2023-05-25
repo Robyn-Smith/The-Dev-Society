@@ -192,7 +192,7 @@ aside {
   left: 0;
   top: 0;
   overflow: auto; /* Enable scroll if needed */
-  background-color: var(--background);
+  background-color: var(--screen-colour);
   font-size: 17px;
   line-height: 1.7em;
   background-image: url("../images/bottom-right.svg"),
@@ -210,6 +210,7 @@ aside {
 
 #player.modal {
   display: none;
+  background-color: var(--background);
 }
 
 #close {
