@@ -94,7 +94,11 @@ p {
   -moz-text-fill-color: transparent;
 }
 
-input[type="text"] {
+#welcome-search-form {
+  margin: 5rem 0;
+}
+
+input[type="text"]#main-input {
   background-color: var(--screen-colour);
   background-image: url("../images/DD\ Film\ Grain\ Texture\ 54309.png");
   background-size: 100%;
@@ -111,6 +115,7 @@ input[type="text"] {
 #viewBtnMain {
   text-align: center;
   color: var(--screen-colour);
+  margin-bottom: 17%;
 }
 
 /* add the message display none initially */
