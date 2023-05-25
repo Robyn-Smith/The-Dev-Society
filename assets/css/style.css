@@ -82,6 +82,7 @@ p {
   color: var(--screen-colour);
   filter: var(--screen-shine);
   font-size: 10rem;
+  line-height: 10rem;
   transform: rotate(-8deg);
   background-color: var(--screen-colour);
   background-image: url("../images/DD\ Film\ Grain\ Texture\ 54309.png");
