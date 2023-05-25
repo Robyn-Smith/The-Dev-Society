@@ -314,6 +314,7 @@ dialog img {
 
 dialog p {
   display: block;
+  color: var(--screen-colour);
   max-width: 100%;
 }
 
