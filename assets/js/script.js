@@ -241,7 +241,6 @@ function retrieveLatLong(city){
   var lat = 0;
   var long =0;
   errorEl.textContent = "";
-  //console.log(requestUrl);
   fetch(requestUrl)
   .then(function (response) {
     if (response.status !== 200){
