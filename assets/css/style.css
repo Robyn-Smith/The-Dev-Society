@@ -191,8 +191,6 @@ aside {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: var(--background);
   font-size: 17px;
@@ -205,7 +203,7 @@ aside {
   background-size: 25%;
   background-position: bottom right, bottom left, top left, top right;
   width: 80%;   /* Adjust as per the size of your background image */
-  height: 80%;  /* Adjust as per the size of your background image */
+  height: 90%;  /* Adjust as per the size of your background image */
   box-sizing: border-box; /* To ensure padding doesn't add to the total width/height */
   
 }
@@ -244,12 +242,12 @@ aside {
   position: relative;
 }
 
-/* 20230519: add hot class for no more padding */
+/* add hot class for no more padding */
 .hot {
   padding: 0;
 }
 
-/* 20230519: add history button style */
+/* add history button style */
 .histBtn {
   background-color: darkslategrey;
   border: 1rem;
@@ -285,13 +283,13 @@ aside {
 }
 
 #player iframe {
-  /*20230519: change the padding to match the screen */
-  width: 100%;
-  height: 90%;
+  /*change the padding to match the screen */
+  width: 80%;
+  height: 58%;
   padding-top: 10%;
   padding-left: 10%;
-  padding-right: 8%;
-  padding-bottom: calc(90% * (6.5% / 100));
+  padding-right: 10%;
+  padding-bottom: 10%;
 }
 
 dialog {
