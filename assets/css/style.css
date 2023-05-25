@@ -9,7 +9,9 @@
   --color-4: #e1bd7a;
   --color-5: #d08a49;
   --screen-shine: drop-shadow(0 0 20px var(--screen-colour));
-  color: var(--color-4);
+  color: var(--background);
+  font-family: var(--body-font);
+  font-weight: bold;
 }
 
 body {
@@ -43,20 +45,28 @@ h1 {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-}
-
-h1,
-h2 {
   font-weight: normal;
   font-family: var(--header-font);
   text-align: center;
   line-height: 200%;
 }
 
+h2 {
+  font-weight: normal;
+  font-family: var(--header-font);
+  text-align: center;
+  line-height: 200%;
+  color: var(--background);
+}
+
 /*div {*/
 /* margin: 2em auto; */
 /* padding: 2em 2.5em;
 }*/
+
+.header-font {
+  font-family: var(--header-font);
+}
 
 p {
   font-family: var(--body-font);
@@ -132,7 +142,7 @@ section#details {
 }
 
 .bg-white {
-  background-color: rgba(555, 555, 555, 0.5);
+  background-color: var(--screen-colour);
 }
 
 aside {
