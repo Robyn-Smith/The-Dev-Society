@@ -1,10 +1,3 @@
-var apiKey = 'e53831fe';
-// YouTube API
-var apiKey2 = 'AIzaSyAQ6qYnLqpxfSWS1FZVakvqLEOfVjXlJp4';
-//var apiKey2 = 'AIzaSyDE6KlHz8PmrCyHMADxzBtkvSrMU2pzJ8c';
-
-var apiKey3a = '77ca7d6ec3122dd37ca00d73aa375bef';
-var apiKey3 = 'AIzaSyD7xo_u2lBGkDL4xt_JdCr8ew06xLLt0pI';
 
 var mainInput = document.getElementById("main-input");
 
@@ -236,7 +229,7 @@ function retrieveOMDBfromWelcome(movie){
 function retrieveLatLong(city){
 
   //var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + '&appid=' + apiKey3a;
-  var requestUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyCr-Av0kS8QAYgzV2dOHJXomDn8rxTcsRA`;
+  var requestUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${apiKey3}`;
 
   var lat = 0;
   var long =0;
